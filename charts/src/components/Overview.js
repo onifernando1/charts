@@ -14,8 +14,16 @@ function Overview() {
     <>
       <div className="overview-container">
         <div className="overview-title-container">
-          <div className="overview-title">{sp500title}</div>
-          <div className="overview-info">{sp500info}</div>
+          <div>
+            <div className="overview-title">{sp500title}</div>
+            <div className="overview-info">{sp500info}</div>
+          </div>
+          <div>
+            <div className="overview-currency">CURRENCY $</div>
+          </div>
+          <div>
+            <div className="overview-watchlist">+ ADD TO WATCHLIST</div>
+          </div>
         </div>
         <div>
           <ExchangeData

@@ -1,7 +1,23 @@
 .overview-title {
   color: white;
-  background-color: rgb(0, 0, 68);
-  height: 4rem;
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+.overview-info {
+  color: white;
+}
+
+.overview-title-container {
+  background-color: rgb(0, 0, 68);
+  height: 4rem;
+  display: flex;
+  gap: 10rem;
+  align-items: center;
+  padding: 10px;
+}
+
+.overview-currency,
+.overview-watchlist {
+  color: white;
 }
