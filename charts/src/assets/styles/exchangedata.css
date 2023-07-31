@@ -1,0 +1,47 @@
+.exchange-data-container {
+  display: flex;
+}
+
+.exchange-price-container {
+  background-color: black;
+  color: white;
+}
+
+.exchange-day-change-percentage {
+  color: rgb(66, 244, 66);
+}
+
+.exchange-price-container,
+.exchange-day-change-container,
+.exchange-range-container {
+  width: 8rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.exchange-price-number,
+.exchange-day-change-percentage,
+.exchange-range-number {
+  font-size: 1.2rem;
+}
+
+.exchange-price-number,
+.exchange-day-change-percentage {
+  font-weight: 600;
+}
+
+.exchange-price-label,
+.exchange-day-change-label,
+.exchange-range-label {
+  color: grey;
+}
+
+.exchange-data-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(79, 79, 79);
+  margin-bottom: 0.5rem;
+}
