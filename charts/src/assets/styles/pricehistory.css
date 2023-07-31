@@ -1,7 +1,10 @@
 .price-history-container {
-  /* background-color: red; */
-  height: 50rem;
-  width: 50rem;
+  height: 25rem;
+  width: 30rem;
+  background-color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+  /* marker remove margin when I add in css grid */
 }
 
 .time-frame-switch-container {

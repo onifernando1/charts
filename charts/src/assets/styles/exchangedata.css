@@ -1,3 +1,10 @@
+.outer-exchange-data-container {
+  background-color: white;
+  height: 8rem;
+  width: 30rem;
+  padding: 1rem;
+}
+
 .exchange-data-container {
   display: flex;
 }
