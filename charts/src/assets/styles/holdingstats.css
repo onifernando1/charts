@@ -1,0 +1,22 @@
+.holding-stats-outer-container {
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: white;
+  width: 30rem;
+}
+
+.market-cap-container,
+.dividend-rate-container,
+.dividend-yield-container,
+.holdings-tracked-container,
+.beta-container,
+.shares-outstanding-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.holding-stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
