@@ -19,9 +19,13 @@ function PriceHistory() {
     454.2, 455.44, 455.51, 452.49, 456.92, 456.92, 456.92, 456.92,
   ];
 
+  const weekPercentageChange = "↑ 3.58 (0.79%)";
+
   const monthPriceLabels = ["Jun 30", "Jul 7", "Jul 14", "Jul 21", "Jul 28"];
 
   const monthPriceData = [443.28, 438.55, 449.28, 452.18, 456.92];
+
+  const monthPercentageChange = "↑ 14.50 (3.27%)";
 
   const timeFrames = ["week", "oneMonth"];
 
@@ -29,6 +33,7 @@ function PriceHistory() {
 
   return (
     <div className="price-history-container">
+      <div className="price-history-title">Price History</div>
       <div className="time-frame-switch-container">
         <div onClick={() => setCurrentTimeFrame(timeFrames[0])}>1 Week</div>
         <div onClick={() => setCurrentTimeFrame(timeFrames[1])}>1 Month</div>
@@ -38,12 +43,14 @@ function PriceHistory() {
         <IndividualPriceHistoryGraph
           priceData={weekPriceData}
           priceLabels={weekPriceLabels}
+          percentageChange={weekPercentageChange}
         />
       ) : null}
       {currentTimeFrame == timeFrames[1] ? (
         <IndividualPriceHistoryGraph
           priceData={monthPriceData}
           priceLabels={monthPriceLabels}
+          percentageChange={monthPercentageChange}
         />
       ) : null}
     </div>

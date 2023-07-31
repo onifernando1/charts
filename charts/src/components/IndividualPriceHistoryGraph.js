@@ -9,6 +9,7 @@ import {
   Legend,
   Tooltip,
 } from "chart.js";
+import "../assets/styles/individualpricehistory.css";
 
 function IndividualPriceHistoryGraph(props) {
   ChartJS.register(
@@ -23,6 +24,8 @@ function IndividualPriceHistoryGraph(props) {
   const priceLabels = props.priceLabels;
 
   const priceData = props.priceData;
+
+  const percentageChange = props.percentageChange;
 
   const options = {
     plugins: {
@@ -46,8 +49,9 @@ function IndividualPriceHistoryGraph(props) {
   };
 
   return (
-    <div>
+    <div className="individual-price-history-graph-container">
       <Line data={data} options={options} />
+      <div className="percentage-change">{percentageChange}</div>
     </div>
   );
 }

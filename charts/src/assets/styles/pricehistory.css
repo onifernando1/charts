@@ -3,3 +3,21 @@
   height: 50rem;
   width: 50rem;
 }
+
+.time-frame-switch-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.time-frame-switch-container > div {
+  padding: 0.5rem;
+}
+
+.time-frame-switch-container > div:hover {
+  background-color: rgb(246, 243, 243);
+}
+
+.price-history-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

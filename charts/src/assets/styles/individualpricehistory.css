@@ -1,0 +1,12 @@
+.percentage-change {
+  color: rgb(66, 244, 66);
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 15%;
+  right: 10%;
+}
+
+.individual-price-history-graph-container {
+  position: relative;
+}
