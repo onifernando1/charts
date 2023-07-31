@@ -3,6 +3,8 @@
   height: 8rem;
   width: 30rem;
   padding: 1rem;
+  margin-top: 2rem;
+  /* marker margin reemove css grid */
 }
 
 .exchange-data-container {
@@ -49,6 +51,6 @@
 .exchange-data-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: rgb(79, 79, 79);
+  /* color: rgb(79, 79, 79); */
   margin-bottom: 0.5rem;
 }

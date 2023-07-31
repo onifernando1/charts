@@ -1,5 +1,8 @@
 .overview-container {
   background-color: rgb(231, 228, 228);
+  height: 100vh;
+  padding: 2rem;
+  /* marker padding */
 }
 
 .overview-title {
