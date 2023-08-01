@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { requestData } from "../sampleData/requestData";
+import LineGraph from "./LineGraph";
+import "../assets/styles/ebitda.css";
+import { useEffect } from "react";
 
 function Ebitda() {
   const [dateArray, setDateArray] = useState("");
-  const [ebitdaArray, setEbidtaArray] = useState("");
+  const [ebitdaArray, setEbitdaArray] = useState("");
 
   useEffect(() => {
     getDateAndEbitdaArraysFromOriginalRequest();
@@ -61,7 +64,12 @@ function Ebitda() {
     const ebitdaArray = getEbitdaArrayFromSortedData(joinedArray);
   };
 
-  return <div></div>;
+  return (
+    <div className="ebitda-container">
+      <div className="ebitda-title">Ebitda</div>
+      <LineGraph x={dateArray} y={ebitdaArray} />
+    </div>
+  );
 }
 
 export default Ebitda;

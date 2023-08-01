@@ -7,6 +7,7 @@ import { requestData } from "../sampleData/requestData";
 import { useState } from "react";
 import RevenueOverTime from "./RevenueOverTime";
 import GrossProfitNetIncome from "./GrossProfitNetIncome";
+import Ebitda from "./Ebitda";
 
 function Overview() {
   const sp500price = 457.78;
@@ -49,6 +50,9 @@ function Overview() {
         </div>
         <div>
           <GrossProfitNetIncome />
+        </div>
+        <div>
+          <Ebitda />
         </div>
         <div>
           <HoldingStats
