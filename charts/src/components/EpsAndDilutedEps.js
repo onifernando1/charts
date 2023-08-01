@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { requestData } from "../sampleData/requestData";
 import "../assets/styles/epsdiluted.css";
 
-function EpsAndDilutedEps() {
+function EpsAndDilutedEps(props) {
   const [dateArray, setDateArray] = useState("");
   const [epsArray, setEpsArray] = useState("");
   const [dilutedEpsArray, setDilutedEpsArray] = useState("");
+  const requestData = props.data;
 
   useEffect(() => {
     getDateEpsDilutedEpsArraysFromOriginalRequest();

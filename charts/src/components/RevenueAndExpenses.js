@@ -1,10 +1,9 @@
 import React from "react";
-import { requestData } from "../sampleData/requestData";
 import { useState, useEffect } from "react";
 import PieChart from "./PieChart";
 import "../assets/styles/revenueexpenses.css";
 
-function RevenueAndExpenses() {
+function RevenueAndExpenses(props) {
   const [revenueExpenseArray, setRevenueExpenseArray] = useState("");
   const labels = [
     "Revenue",
@@ -13,6 +12,7 @@ function RevenueAndExpenses() {
     "General and Administrative Expenses",
     "Selling and Marketing Expenses",
   ];
+  const requestData = props.data;
 
   useEffect(() => {
     setRevenueExpenseArray(getRevenueAndExpenseArray());

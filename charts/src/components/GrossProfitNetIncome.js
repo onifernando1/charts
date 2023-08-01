@@ -1,13 +1,13 @@
 import React from "react";
 import BarChart from "./BarChart";
 import { useState, useEffect } from "react";
-import { requestData } from "../sampleData/requestData";
 import "../assets/styles/grossprofitnetincome.css";
 
 function GrossProfitNetIncome(props) {
   const [dateArray, setDateArray] = useState("");
   const [grossProfitArray, setGrossProfitArray] = useState("");
   const [netIncomeArray, setNetIncomeArray] = useState("");
+  const requestData = props.data;
 
   useEffect(() => {
     getDateGrossProfitNetIncomeArraysFromOriginalRequest();

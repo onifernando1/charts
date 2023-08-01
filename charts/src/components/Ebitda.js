@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { requestData } from "../sampleData/requestData";
 import LineGraph from "./LineGraph";
 import "../assets/styles/ebitda.css";
 import { useEffect } from "react";
 
-function Ebitda() {
+function Ebitda(props) {
   const [dateArray, setDateArray] = useState("");
   const [ebitdaArray, setEbitdaArray] = useState("");
+  const requestData = props.data;
 
   useEffect(() => {
     getDateAndEbitdaArraysFromOriginalRequest();

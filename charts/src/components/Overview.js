@@ -51,24 +51,26 @@ function Overview() {
             </div>
             <div>
               {/* <PriceHistory /> */}
-              <RevenueOverTime />
+              <RevenueOverTime data={requestData} />
             </div>
             <div>
-              <GrossProfitNetIncome />
+              <GrossProfitNetIncome data={requestData} />
             </div>
             <div>
-              <Ebitda />
+              <Ebitda data={requestData} />
             </div>
           </div>
-          <div className="overview-body-right-container">
+          <div className="overview-body-middle-container">
             <div>
-              <EpsAndDilutedEps />
+              <EpsAndDilutedEps data={requestData} />
             </div>
             <div>
-              <RevenueAndExpenses />
+              <RevenueAndExpenses data={requestData} />
             </div>
+          </div>
+          <div className="overview-body-middle-container">
             <div>
-              <InterestIncomeExpense />
+              <InterestIncomeExpense data={requestData} />
             </div>
           </div>
         </div>

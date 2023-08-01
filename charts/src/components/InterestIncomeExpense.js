@@ -1,13 +1,13 @@
 import React from "react";
 import BarChart from "./BarChart";
 import { useState, useEffect } from "react";
-import { requestData } from "../sampleData/requestData";
 import "../assets/styles/incomeexpense.css";
 
-function InterestIncomeExpense() {
+function InterestIncomeExpense(props) {
   const [dateArray, setDateArray] = useState("");
   const [incomeArray, setIncomeArray] = useState("");
   const [expenseArray, setExpenseArray] = useState("");
+  const requestData = props.data;
 
   useEffect(() => {
     getDateIncomeExpenseArraysFromOriginalRequest();
