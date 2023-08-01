@@ -67,7 +67,7 @@ function Ebitda(props) {
   return (
     <div className="ebitda-container">
       <div className="ebitda-title">Ebitda</div>
-      <LineGraph x={dateArray} y={ebitdaArray} />
+      <LineGraph x={dateArray} dataset1={{ data: ebitdaArray, label: "$" }} />
     </div>
   );
 }

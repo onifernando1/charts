@@ -72,7 +72,10 @@ function RevenueOverTime(props) {
     <div className="revenue-over-time-container">
       <div className="revnue-over-time-title">Revenue Over Time</div>
       <div className="revenue-line-graph">
-        <LineGraph x={dateArray} y={revenueArray} />
+        <LineGraph
+          x={dateArray}
+          dataset1={{ data: revenueArray, label: "$" }}
+        />
       </div>
     </div>
   );

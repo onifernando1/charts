@@ -24,15 +24,16 @@ ChartJS.register(
 function LineGraph(props) {
   const xAxis = props.x;
   const yAxis = props.y;
+  const dataset1 = props.dataset1;
 
   const data = {
     // labels: ["Mon", "Tue", "Wed"],
     labels: xAxis,
     datasets: [
       {
-        label: "",
+        label: dataset1.label,
         // data: [6, 3, 9],
-        data: yAxis,
+        data: dataset1.data,
         backgroundColor: "aqua",
         borderColor: "black",
         pointBorderColor: "aqua",
