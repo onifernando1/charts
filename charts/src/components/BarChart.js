@@ -19,13 +19,17 @@ ChartJS.register(
   BarElement
 );
 
-function BarChart() {
+function BarChart(props) {
+  const xAxis = props.x;
+  const dataset1 = props.dataset1;
+  const dataset2 = props.dataset2;
+
   const data = {
-    labels: ["Mon", "Tue", "Wed"],
+    labels: xAxis,
     datasets: [
       {
-        label: "369",
-        data: [3, 6, 9],
+        label: "",
+        data: dataset1,
         backgroundColor: "aqua",
         borderColor: "black",
         borderWidth: 1,
@@ -33,9 +37,9 @@ function BarChart() {
         tension: 0.4,
       },
       {
-        label: "333",
-        data: [3, 3, 3],
-        backgroundColor: "marine",
+        label: "",
+        data: dataset2,
+        backgroundColor: "red",
         borderColor: "black",
         borderWidth: 1,
         fill: true,
@@ -46,7 +50,7 @@ function BarChart() {
 
   const options = {
     plugins: {
-      legend: true,
+      legend: false,
     },
     scales: {
       y: {
