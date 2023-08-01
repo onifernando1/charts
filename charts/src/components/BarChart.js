@@ -1,5 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import "../assets/styles/barchart.css";
+
 import {
   Chart as ChartJS,
   CategoryScale, // x axis

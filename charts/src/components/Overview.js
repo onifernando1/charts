@@ -6,12 +6,13 @@ import HoldingStats from "./HoldingStats";
 import { requestData } from "../sampleData/requestData";
 import { useState } from "react";
 import RevenueOverTime from "./RevenueOverTime";
+import GrossProfitNetIncome from "./GrossProfitNetIncome";
 
 function Overview() {
   const sp500price = 457.78;
   const sp500percentageChange = "0.86(0.19%)";
   const sp500range = "348.11 - 459.44";
-  const sp500title = "SPDR S&P 500 ETF Trust";
+  const sp500title = "Amazon";
   const sp500info = "United States / Financials / Capital Markets";
   const sp500marketCap = "430.8B";
   const sp500dividendRate = 6.55;
@@ -45,6 +46,9 @@ function Overview() {
         <div>
           {/* <PriceHistory /> */}
           <RevenueOverTime />
+        </div>
+        <div>
+          <GrossProfitNetIncome />
         </div>
         <div>
           <HoldingStats
