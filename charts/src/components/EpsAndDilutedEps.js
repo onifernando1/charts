@@ -80,7 +80,11 @@ function EpsAndDilutedEps(props) {
   return (
     <div className="eps-diluted-container">
       <div className="eps-diluted-title">EPS/Diluted EPS</div>
-      <BarChart x={dateArray} dataset1={epsArray} dataset2={dilutedEpsArray} />
+      <BarChart
+        x={dateArray}
+        dataset1={{ data: epsArray, label: "EPS" }}
+        dataset2={{ data: dilutedEpsArray, label: "Diluted EPS" }}
+      />
     </div>
   );
 }

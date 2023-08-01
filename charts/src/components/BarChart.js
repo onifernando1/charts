@@ -30,8 +30,8 @@ function BarChart(props) {
     labels: xAxis,
     datasets: [
       {
-        label: "",
-        data: dataset1,
+        label: dataset1.label,
+        data: dataset1.data,
         backgroundColor: "aqua",
         borderColor: "black",
         borderWidth: 1,
@@ -39,8 +39,8 @@ function BarChart(props) {
         tension: 0.4,
       },
       {
-        label: "",
-        data: dataset2,
+        label: dataset2.label,
+        data: dataset2.data,
         backgroundColor: "red",
         borderColor: "black",
         borderWidth: 1,
@@ -52,7 +52,7 @@ function BarChart(props) {
 
   const options = {
     plugins: {
-      legend: false,
+      legend: true,
     },
     scales: {
       y: {

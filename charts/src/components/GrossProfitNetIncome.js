@@ -85,8 +85,8 @@ function GrossProfitNetIncome(props) {
       </div>
       <BarChart
         x={dateArray}
-        dataset1={grossProfitArray}
-        dataset2={netIncomeArray}
+        dataset1={{ data: grossProfitArray, label: "Gross Profit" }}
+        dataset2={{ data: netIncomeArray, label: "Net Income" }}
       />
     </div>
   );

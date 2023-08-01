@@ -83,7 +83,11 @@ function InterestIncomeExpense(props) {
       <div className="income-expense-title">
         Interest Income / Interest Expense
       </div>
-      <BarChart x={dateArray} dataset1={incomeArray} dataset2={expenseArray} />
+      <BarChart
+        x={dateArray}
+        dataset1={{ data: incomeArray, label: "Income" }}
+        dataset2={{ data: expenseArray, label: "Expenses" }}
+      />
     </div>
   );
 }
