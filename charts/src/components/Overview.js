@@ -15,7 +15,7 @@ function Overview(props) {
   const sp500price = 457.78;
   const sp500percentageChange = "0.86(0.19%)";
   const sp500range = "348.11 - 459.44";
-  const sp500title = "Amazon";
+  const companySymbol = props.data[0].symbol;
   const sp500info = "United States / Financials / Capital Markets";
   const sp500marketCap = "430.8B";
   const sp500dividendRate = 6.55;
@@ -30,7 +30,7 @@ function Overview(props) {
       <div className="overview-container">
         <div className="overview-title-container">
           <div>
-            <div className="overview-title">{sp500title}</div>
+            <div className="overview-title">{companySymbol}</div>
             <div className="overview-info">{sp500info}</div>
           </div>
           <div>
@@ -42,13 +42,13 @@ function Overview(props) {
         </div>
         <div className="overview-body-container">
           <div className="overview-body-left-container">
-            <div>
+            {/* <div>
               <ExchangeData
                 price={sp500price}
                 percentageChange={sp500percentageChange}
                 range={sp500range}
               />
-            </div>
+            </div> */}
             <div>
               {/* <PriceHistory /> */}
               <RevenueOverTime data={requestData} />
