@@ -11,7 +11,7 @@ function GrossProfitNetIncome(props) {
 
   useEffect(() => {
     getDateGrossProfitNetIncomeArraysFromOriginalRequest();
-  }, []);
+  }, [props.data]);
 
   const getLastFiveYearsFormRequestDataSorted = () => {
     let tempLastFiveYearsArray = [];

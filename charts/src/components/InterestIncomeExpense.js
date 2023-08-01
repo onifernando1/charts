@@ -11,7 +11,7 @@ function InterestIncomeExpense(props) {
 
   useEffect(() => {
     getDateIncomeExpenseArraysFromOriginalRequest();
-  }, []);
+  }, [props.data]);
 
   const getLastFiveYearsFormRequestDataSorted = () => {
     let tempLastFiveYearsArray = [];

@@ -16,7 +16,7 @@ function RevenueAndExpenses(props) {
 
   useEffect(() => {
     setRevenueExpenseArray(getRevenueAndExpenseArray());
-  }, []);
+  }, [props.data]);
 
   const getRevenueAndExpenseArray = () => {
     const tempArray = [];

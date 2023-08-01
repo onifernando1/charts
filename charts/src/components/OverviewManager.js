@@ -1,11 +1,30 @@
 import React from "react";
 import Overview from "./Overview";
+import { useState } from "react";
 import { amazonRequestData } from "../sampleData/requestData";
+import { MSFTRequestData } from "../sampleData/requestData";
 
 function OverviewManager(props) {
+  const [currentRequestData, setCurrentRequestData] =
+    useState(amazonRequestData);
   return (
     <>
-      <Overview data={amazonRequestData} />
+      <div>{currentRequestData[0].symbol}</div>
+      <div
+        onClick={() => {
+          setCurrentRequestData(amazonRequestData);
+        }}
+      >
+        Amazon
+      </div>
+      <div
+        onClick={() => {
+          setCurrentRequestData(MSFTRequestData);
+        }}
+      >
+        MSFT
+      </div>
+      <Overview data={currentRequestData} />
     </>
   );
 }

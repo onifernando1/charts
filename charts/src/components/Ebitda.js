@@ -10,7 +10,7 @@ function Ebitda(props) {
 
   useEffect(() => {
     getDateAndEbitdaArraysFromOriginalRequest();
-  }, []);
+  }, [props.data]);
 
   const getLastTenYearsFormRequestDataSorted = () => {
     let tempLastTenYearsArray = [];

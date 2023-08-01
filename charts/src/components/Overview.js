@@ -3,7 +3,6 @@ import PriceHistory from "./PriceHistory";
 import ExchangeData from "./ExchangeData";
 import "../assets/styles/overview.css";
 import HoldingStats from "./HoldingStats";
-import { requestData } from "../sampleData/requestData";
 import { useState } from "react";
 import RevenueOverTime from "./RevenueOverTime";
 import GrossProfitNetIncome from "./GrossProfitNetIncome";

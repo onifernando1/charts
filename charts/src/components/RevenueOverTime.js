@@ -11,7 +11,7 @@ function RevenueOverTime(props) {
 
   useEffect(() => {
     getDateAndRevenueArraysFromOriginalRequest();
-  }, []);
+  }, [props.data]);
 
   const getLastTenYearsFormRequestDataSorted = () => {
     let tempLastTenYearsArray = [];

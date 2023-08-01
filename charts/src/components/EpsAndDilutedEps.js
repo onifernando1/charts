@@ -12,7 +12,7 @@ function EpsAndDilutedEps(props) {
 
   useEffect(() => {
     getDateEpsDilutedEpsArraysFromOriginalRequest();
-  }, []);
+  }, [props.data]);
 
   const getLastFiveYearsFormRequestDataSorted = () => {
     let tempLastFiveYearsArray = [];
