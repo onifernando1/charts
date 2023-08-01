@@ -42,7 +42,7 @@ function LineGraph(props) {
 
   const options = {
     plugins: {
-      legend: true,
+      legend: false,
     },
     scales: {
       y: {
