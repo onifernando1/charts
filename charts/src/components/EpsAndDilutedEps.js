@@ -2,6 +2,7 @@ import React from "react";
 import BarChart from "./BarChart";
 import { useState, useEffect } from "react";
 import { requestData } from "../sampleData/requestData";
+import "../assets/styles/epsdiluted.css";
 
 function EpsAndDilutedEps() {
   const [dateArray, setDateArray] = useState("");

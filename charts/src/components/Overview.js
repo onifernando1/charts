@@ -8,6 +8,7 @@ import { useState } from "react";
 import RevenueOverTime from "./RevenueOverTime";
 import GrossProfitNetIncome from "./GrossProfitNetIncome";
 import Ebitda from "./Ebitda";
+import EpsAndDilutedEps from "./EpsAndDilutedEps";
 
 function Overview() {
   const sp500price = 457.78;
@@ -55,14 +56,7 @@ function Overview() {
           <Ebitda />
         </div>
         <div>
-          <HoldingStats
-            marketCap={sp500marketCap}
-            dividendRate={sp500dividendRate}
-            dividendYield={sp500dividendYield}
-            holdingsTracked={sp500holdingsTracked}
-            beta={sp500beta}
-            sharesOutstanding={sp500sharesOutstanding}
-          />
+          <EpsAndDilutedEps />
         </div>
       </div>
     </>
