@@ -10,6 +10,7 @@ import GrossProfitNetIncome from "./GrossProfitNetIncome";
 import Ebitda from "./Ebitda";
 import EpsAndDilutedEps from "./EpsAndDilutedEps";
 import RevenueAndExpenses from "./RevenueAndExpenses";
+import InterestIncomeExpense from "./InterestIncomeExpense";
 
 function Overview() {
   const sp500price = 457.78;
@@ -39,28 +40,37 @@ function Overview() {
             <div className="overview-watchlist">+ ADD TO WATCHLIST</div>
           </div>
         </div>
-        <div>
-          <ExchangeData
-            price={sp500price}
-            percentageChange={sp500percentageChange}
-            range={sp500range}
-          />
-        </div>
-        <div>
-          {/* <PriceHistory /> */}
-          <RevenueOverTime />
-        </div>
-        <div>
-          <GrossProfitNetIncome />
-        </div>
-        <div>
-          <Ebitda />
-        </div>
-        <div>
-          <EpsAndDilutedEps />
-        </div>
-        <div>
-          <RevenueAndExpenses />
+        <div className="overview-body-container">
+          <div className="overview-body-left-container">
+            <div>
+              <ExchangeData
+                price={sp500price}
+                percentageChange={sp500percentageChange}
+                range={sp500range}
+              />
+            </div>
+            <div>
+              {/* <PriceHistory /> */}
+              <RevenueOverTime />
+            </div>
+            <div>
+              <GrossProfitNetIncome />
+            </div>
+            <div>
+              <Ebitda />
+            </div>
+          </div>
+          <div className="overview-body-right-container">
+            <div>
+              <EpsAndDilutedEps />
+            </div>
+            <div>
+              <RevenueAndExpenses />
+            </div>
+            <div>
+              <InterestIncomeExpense />
+            </div>
+          </div>
         </div>
       </div>
     </>

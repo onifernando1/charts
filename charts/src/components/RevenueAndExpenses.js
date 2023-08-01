@@ -2,6 +2,7 @@ import React from "react";
 import { requestData } from "../sampleData/requestData";
 import { useState, useEffect } from "react";
 import PieChart from "./PieChart";
+import "../assets/styles/revenueexpenses.css";
 
 function RevenueAndExpenses() {
   const [revenueExpenseArray, setRevenueExpenseArray] = useState("");
@@ -29,8 +30,8 @@ function RevenueAndExpenses() {
 
   return (
     <>
-      <div className="revenue-expenses-container">Revenue Expenses 2022</div>
-      <div>
+      <div className="revenue-expenses-container">
+        <div className="revenue-expenses-title">Revenue And Expenses 2022</div>
         <PieChart labels={labels} dataset1={revenueExpenseArray} />
       </div>
     </>

@@ -1,6 +1,6 @@
 .overview-container {
   background-color: rgb(231, 228, 228);
-  height: 100vh;
+  height: 100%;
   padding: 2rem;
   /* marker padding */
 }
@@ -27,4 +27,10 @@
 .overview-currency,
 .overview-watchlist {
   color: white;
+}
+
+.overview-body-container {
+  display: flex;
+  gap: 10rem;
+  padding: 5rem;
 }
