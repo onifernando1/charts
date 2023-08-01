@@ -19,7 +19,10 @@ ChartJS.register(
   Tooltip
 );
 
-function LineGraph() {
+function LineGraph(props) {
+  const xAxis = props.x;
+  const yAxis = props.y;
+
   const data = {
     labels: ["Mon", "Tue", "Wed"],
     datasets: [
