@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { requestData } from "../sampleData/requestData";
 import LineGraph from "./LineGraph";
+import "../assets/styles/revenueovertime.css";
 
 function RevenueOverTime(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);

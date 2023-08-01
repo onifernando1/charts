@@ -1,5 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import "../assets/styles/lineGraph.css";
+
 import {
   Chart as ChartJS,
   LineElement,

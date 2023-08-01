@@ -78,7 +78,10 @@ function GrossProfitNetIncome(props) {
   };
 
   return (
-    <div>
+    <div className="gross-profit-net-income-container">
+      <div className="gross-profit-net-income-title">
+        Gross Profit/Net income
+      </div>
       <BarChart
         x={dateArray}
         dataset1={grossProfitArray}

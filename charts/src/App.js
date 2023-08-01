@@ -9,9 +9,9 @@ import GrossProfitNetIncome from "./components/GrossProfitNetIncome";
 function App() {
   return (
     <>
-      {/* <Overview /> */}
+      <Overview />
       {/* <RevenueOverTime /> */}
-      <GrossProfitNetIncome />
+      {/* <GrossProfitNetIncome /> */}
     </>
   );
 }

@@ -5,6 +5,7 @@ import "../assets/styles/overview.css";
 import HoldingStats from "./HoldingStats";
 import { requestData } from "../sampleData/requestData";
 import { useState } from "react";
+import RevenueOverTime from "./RevenueOverTime";
 
 function Overview() {
   const sp500price = 457.78;
@@ -42,7 +43,8 @@ function Overview() {
           />
         </div>
         <div>
-          <PriceHistory />
+          {/* <PriceHistory /> */}
+          <RevenueOverTime />
         </div>
         <div>
           <HoldingStats
