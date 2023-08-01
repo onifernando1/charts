@@ -1,4 +1,4 @@
-export const requestData = [
+export const amazonRequestData = [
   {
     date: "2022-12-31",
     symbol: "AMZN",

@@ -12,7 +12,7 @@ import EpsAndDilutedEps from "./EpsAndDilutedEps";
 import RevenueAndExpenses from "./RevenueAndExpenses";
 import InterestIncomeExpense from "./InterestIncomeExpense";
 
-function Overview() {
+function Overview(props) {
   const sp500price = 457.78;
   const sp500percentageChange = "0.86(0.19%)";
   const sp500range = "348.11 - 459.44";
@@ -24,6 +24,7 @@ function Overview() {
   const sp500holdingsTracked = 506;
   const sp500beta = 1.01;
   const sp500sharesOutstanding = "942.7 M";
+  const requestData = props.data;
 
   return (
     <>
