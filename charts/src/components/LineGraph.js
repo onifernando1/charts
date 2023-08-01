@@ -30,7 +30,7 @@ function LineGraph(props) {
     labels: xAxis,
     datasets: [
       {
-        label: "Sales of the week",
+        label: "",
         // data: [6, 3, 9],
         data: yAxis,
         backgroundColor: "aqua",
