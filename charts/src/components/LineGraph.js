@@ -24,11 +24,13 @@ function LineGraph(props) {
   const yAxis = props.y;
 
   const data = {
-    labels: ["Mon", "Tue", "Wed"],
+    // labels: ["Mon", "Tue", "Wed"],
+    labels: xAxis,
     datasets: [
       {
         label: "Sales of the week",
-        data: [6, 3, 9],
+        // data: [6, 3, 9],
+        data: yAxis,
         backgroundColor: "aqua",
         borderColor: "black",
         pointBorderColor: "aqua",

@@ -1,9 +1,31 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { requestData } from "../sampleData/requestData";
+import LineGraph from "./LineGraph";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale, // x axis
+  LinearScale, // y axis
+  PointElement,
+  Legend,
+  Tooltip,
+} from "chart.js";
+
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Legend,
+  Tooltip
+);
 
 function RevenueOverTime(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);
+  const [dateArray, setDateArray] = useState("");
+  const [revenueArray, setRevenueArray] = useState("");
 
   useEffect(() => {
     getDateAndRevenueArraysFromOriginalRequest();
@@ -41,6 +63,7 @@ function RevenueOverTime(props) {
       tempDateArray.push(dataArray[i][0]);
     }
     console.log(tempDateArray);
+    setDateArray(tempDateArray);
     return tempDateArray;
   };
 
@@ -50,6 +73,7 @@ function RevenueOverTime(props) {
       tempRevenueArray.push(dataArray[i][1]);
     }
     console.log(tempRevenueArray);
+    setRevenueArray(tempRevenueArray);
     return tempRevenueArray;
   };
 
@@ -62,7 +86,38 @@ function RevenueOverTime(props) {
     );
   };
 
-  return <div>Hi</div>;
+  const data = {
+    labels: dateArray,
+    datasets: [
+      {
+        label: "",
+        data: revenueArray,
+        backgroundColor: "aqua",
+        borderColor: "black",
+        pointBorderColor: "aqua",
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  };
+
+  const options = {
+    plugins: {
+      legend: false,
+    },
+    scales: {
+      y: {
+        // min: 3,
+        // max: 6,
+      },
+    },
+  };
+
+  return (
+    <div className="revenue-line-graph">
+      <Line data={data} options={options}></Line>
+    </div>
+  );
 }
 
 export default RevenueOverTime;
