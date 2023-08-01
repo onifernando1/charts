@@ -18,17 +18,6 @@ function Overview() {
   const sp500holdingsTracked = 506;
   const sp500beta = 1.01;
   const sp500sharesOutstanding = "942.7 M";
-  const [currentRequestData, useCurrentRequestData] = useState([]);
-
-  const getLastTenYearsFormRequestData = () => {
-    const tempRequestData = [];
-    for (let i = 0; i < 10; i++) {
-      tempRequestData.push(requestData[i]);
-    }
-    console.log(tempRequestData);
-  };
-
-  getLastTenYearsFormRequestData();
 
   return (
     <>

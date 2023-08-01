@@ -1,24 +1,40 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { requestData } from "../sampleData/requestData";
 
 function RevenueOverTime(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);
 
+  useEffect(() => {
+    getDateAndRevenueDataFromOriginalRequest();
+  }, []);
+
   const getLastTenYearsFormRequestData = () => {
-    const tempRequestData = [];
+    let tempLastTenYearsArray = [];
     for (let i = 0; i < 10; i++) {
-      tempRequestData.push(requestData[i]);
+      tempLastTenYearsArray.push(requestData[i]);
     }
-    console.log(tempRequestData);
-    setCurrentRequestData(tempRequestData);
+    return tempLastTenYearsArray;
   };
 
-  getLastTenYearsFormRequestData();
-
-  const getDateAndRevenueData = () => {
-    let tempRequestData = [];
+  const getDateAndRevenueData = (data) => {
+    let tempDateAndRevenueArray = [];
+    for (let i = 0; i < data.length; i++) {
+      const tempDate = data[i].date;
+      const tempRevenue = data[i].revenue;
+      const tempSortedData = { [tempDate]: tempRevenue };
+      tempDateAndRevenueArray.push(tempSortedData);
+    }
+    return tempDateAndRevenueArray;
   };
 
-  return <div></div>;
+  const getDateAndRevenueDataFromOriginalRequest = () => {
+    const lastTenYearsDataArray = getLastTenYearsFormRequestData();
+    const dateAndRevenueArray = getDateAndRevenueData(lastTenYearsDataArray);
+    console.log(dateAndRevenueArray);
+  };
+
+  return <div>Hi</div>;
 }
 
 export default RevenueOverTime;
