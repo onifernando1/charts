@@ -22,7 +22,7 @@ function PieChart(props) {
 
   const options = {
     plugins: {
-      legend: false,
+      legend: true,
     },
     scales: {
       y: {
