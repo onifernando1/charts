@@ -9,7 +9,6 @@ function OverviewManager(props) {
     useState(amazonRequestData);
   return (
     <>
-      <div>{currentRequestData[0].symbol}</div>
       <div
         onClick={() => {
           setCurrentRequestData(amazonRequestData);
