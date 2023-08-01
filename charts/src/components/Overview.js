@@ -9,6 +9,7 @@ import RevenueOverTime from "./RevenueOverTime";
 import GrossProfitNetIncome from "./GrossProfitNetIncome";
 import Ebitda from "./Ebitda";
 import EpsAndDilutedEps from "./EpsAndDilutedEps";
+import RevenueAndExpenses from "./RevenueAndExpenses";
 
 function Overview() {
   const sp500price = 457.78;
@@ -57,6 +58,9 @@ function Overview() {
         </div>
         <div>
           <EpsAndDilutedEps />
+        </div>
+        <div>
+          <RevenueAndExpenses />
         </div>
       </div>
     </>

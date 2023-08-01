@@ -1,6 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import "../assets/styles/barchart.css";
+import "../assets/styles/piechart.css";
 
 import { Chart as ChartJS, ArcElement, Legend, Tooltip, Title } from "chart.js";
 
@@ -15,7 +15,7 @@ function PieChart(props) {
     datasets: [
       {
         data: dataset1,
-        backgroundColor: ["aqua", "bloodorange", "purple"],
+        backgroundColor: ["aqua", "bloodorange", "purple", "green", "pink"],
       },
     ],
   };
