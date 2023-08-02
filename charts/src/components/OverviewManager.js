@@ -4,6 +4,7 @@ import { useState } from "react";
 import { amazonRequestData } from "../sampleData/requestData";
 import { MSFTRequestData } from "../sampleData/requestData";
 import CashFlowOverview from "./CashFlowOverview";
+import BalanceOverview from "./BalanceOverview";
 
 function OverviewManager(props) {
   const dataViewsArray = ["income", "cashFlow", "balance"];
@@ -30,6 +31,14 @@ function OverviewManager(props) {
       </div>
       <div
         onClick={() => {
+          setCurrentRequestData(amazonRequestData);
+          setCurrentDataView(dataViewsArray[2]);
+        }}
+      >
+        Amazon Balance
+      </div>
+      <div
+        onClick={() => {
           setCurrentRequestData(MSFTRequestData);
           setCurrentDataView(dataViewsArray[0]);
         }}
@@ -51,6 +60,7 @@ function OverviewManager(props) {
         <Overview data={currentRequestData} />
       ) : null}
       {currentDataView == "cashFlow" ? <CashFlowOverview /> : null}
+      {currentDataView == "balance" ? <BalanceOverview /> : null}
     </>
   );
 }
