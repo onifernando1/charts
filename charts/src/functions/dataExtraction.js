@@ -5,6 +5,14 @@ export const getXYearsDataFromRequest = (data, numberOfYears) => {
   for (let i = numberOfYears - 1; i >= 0; i--) {
     tempArray.push(data[i]);
   }
-  console.log(tempArray);
+  return tempArray;
+};
+
+export const getPropertyArrayFromData = (data, property) => {
+  let tempArray = [];
+  for (let i = 0; i < data.length; i++) {
+    tempArray.push(data[i][property]);
+  }
+
   return tempArray;
 };

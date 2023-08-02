@@ -25,7 +25,6 @@ function RevenueAndExpenses(props) {
     tempArray.push(requestData[0].researchAndDevelopmentExpenses);
     tempArray.push(requestData[0].generalAndAdministrativeExpenses);
     tempArray.push(requestData[0].sellingAndMarketingExpenses);
-    getXYearsDataFromRequest(amazonRequestData, 10);
 
     return tempArray;
   };

@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import LineGraph from "./LineGraph";
 import "../assets/styles/revenueovertime.css";
+import { getPropertyArrayFromData } from "../functions/dataExtraction";
+import { amazonRequestData } from "../sampleData/requestData";
 
 function RevenueOverTime(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);
@@ -18,6 +20,8 @@ function RevenueOverTime(props) {
     for (let i = 9; i >= 0; i--) {
       tempLastTenYearsArray.push(requestData[i]);
     }
+
+    getPropertyArrayFromData(tempLastTenYearsArray, "revenue");
     return tempLastTenYearsArray;
   };
 
@@ -66,6 +70,7 @@ function RevenueOverTime(props) {
     const revenueArray = getRevenueArrayFromSortedData(
       joinedDateAndRevenueArray
     );
+    console.log(revenueArray);
   };
 
   return (
