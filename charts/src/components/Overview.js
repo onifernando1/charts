@@ -30,6 +30,7 @@ function Overview(props) {
     <>
       <div className="overview-container">
         <div className="overview-body-container">
+          <div>Income</div>
           <div className="overview-body-left-container">
             <div>
               <RevenueOverTime data={requestData} />

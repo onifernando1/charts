@@ -34,8 +34,8 @@ function OverviewManager(props) {
           <div className="overview-watchlist">+ ADD TO WATCHLIST</div>
         </div>
       </div>
-
-      <Overview data={currentRequestData} />
+      <Overview data={currentRequestData} /> /*Overview is actually Income Data
+      */
     </>
   );
 }
