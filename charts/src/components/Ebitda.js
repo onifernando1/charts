@@ -34,7 +34,7 @@ function Ebitda(props) {
   const getDateAndEbitdaDataFromOriginalRequest = () => {
     const lastTenYearsDataArray = getLastTenYearsFormRequestDataSorted();
     const dateAndEbitdaArray = getDateAndEbitdaData(lastTenYearsDataArray);
-    console.log(dateAndEbitdaArray);
+    // console.log(dateAndEbitdaArray);
     return dateAndEbitdaArray;
   };
 
@@ -43,7 +43,7 @@ function Ebitda(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempDateArray.push(dataArray[i][0]);
     }
-    console.log(tempDateArray);
+    // console.log(tempDateArray);
     setDateArray(tempDateArray);
     return tempDateArray;
   };
@@ -53,7 +53,7 @@ function Ebitda(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempArray.push(dataArray[i][1]);
     }
-    console.log(tempArray);
+    // console.log(tempArray);
     setEbitdaArray(tempArray);
     return tempArray;
   };

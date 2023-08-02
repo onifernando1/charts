@@ -45,7 +45,7 @@ function EpsAndDilutedEps(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempDateArray.push(dataArray[i][0]);
     }
-    console.log(tempDateArray);
+    // console.log(tempDateArray);
     setDateArray(tempDateArray);
     return tempDateArray;
   };
@@ -55,7 +55,7 @@ function EpsAndDilutedEps(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempArray.push(dataArray[i][1]);
     }
-    console.log(tempArray);
+    // console.log(tempArray);
     setEpsArray(tempArray);
     return tempArray;
   };
@@ -65,7 +65,7 @@ function EpsAndDilutedEps(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempArray.push(dataArray[i][2]);
     }
-    console.log(tempArray);
+    // console.log(tempArray);
     setDilutedEpsArray(tempArray);
     return tempArray;
   };

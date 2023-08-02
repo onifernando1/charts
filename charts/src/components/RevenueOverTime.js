@@ -35,7 +35,7 @@ function RevenueOverTime(props) {
   const getDateAndRevenueDataFromOriginalRequest = () => {
     const lastTenYearsDataArray = getLastTenYearsFormRequestDataSorted();
     const dateAndRevenueArray = getDateAndRevenueData(lastTenYearsDataArray);
-    console.log(dateAndRevenueArray);
+    // console.log(dateAndRevenueArray);
     return dateAndRevenueArray;
   };
 
@@ -44,7 +44,7 @@ function RevenueOverTime(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempDateArray.push(dataArray[i][0]);
     }
-    console.log(tempDateArray);
+    // console.log(tempDateArray);
     setDateArray(tempDateArray);
     return tempDateArray;
   };
@@ -54,7 +54,7 @@ function RevenueOverTime(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempRevenueArray.push(dataArray[i][1]);
     }
-    console.log(tempRevenueArray);
+    // console.log(tempRevenueArray);
     setRevenueArray(tempRevenueArray);
     return tempRevenueArray;
   };

@@ -46,7 +46,7 @@ function InterestIncomeExpense(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempDateArray.push(dataArray[i][0]);
     }
-    console.log(tempDateArray);
+    // console.log(tempDateArray);
     setDateArray(tempDateArray);
     return tempDateArray;
   };
@@ -56,7 +56,7 @@ function InterestIncomeExpense(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempArray.push(dataArray[i][1]);
     }
-    console.log(tempArray);
+    // console.log(tempArray);
     setIncomeArray(tempArray);
     return tempArray;
   };
@@ -66,7 +66,7 @@ function InterestIncomeExpense(props) {
     for (let i = 0; i < dataArray.length; i++) {
       tempArray.push(dataArray[i][2]);
     }
-    console.log(tempArray);
+    // console.log(tempArray);
     setExpenseArray(tempArray);
     return tempArray;
   };
