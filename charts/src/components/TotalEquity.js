@@ -5,7 +5,6 @@ import {
   getXYearsDataFromRequest,
 } from "../functions/dataExtraction";
 import BarChart from "./BarChart";
-import "../assets/styles/stock-based-comp.css";
 
 function TotalEquity(props) {
   const requestData = props.data;
