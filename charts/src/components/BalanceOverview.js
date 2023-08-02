@@ -3,6 +3,7 @@ import { amazonBalanceData } from "../sampleData/requestData";
 import TotalEquity from "./TotalEquity";
 import CashEquivalents from "./CashEquivalents";
 import TotalAssets from "./TotalAssets";
+import TotalLiabilities from "./TotalLiabilities";
 
 function BalanceOverview(props) {
   return (
@@ -15,7 +16,9 @@ function BalanceOverview(props) {
             <CashEquivalents data={amazonBalanceData} />
             <TotalAssets data={amazonBalanceData} />
           </div>
-          <div className="overview-body-middle-container"></div>
+          <div className="overview-body-middle-container">
+            <TotalLiabilities data={amazonBalanceData} />
+          </div>
           <div className="overview-body-middle-container"></div>
         </div>
       </div>
