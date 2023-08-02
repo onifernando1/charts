@@ -21,10 +21,9 @@ ChartJS.register(
   BarElement
 );
 
-function BarChart2(props) {
+function BarChart(props) {
   const xAxis = props.x;
   const dataset1 = props.dataset1;
-  const dataset2 = props.dataset2;
 
   const data = {
     labels: xAxis,
@@ -36,16 +35,6 @@ function BarChart2(props) {
         borderColor: "black",
         borderWidth: 1,
         fill: true,
-        tension: 0.4,
-      },
-      {
-        label: dataset2.label,
-        data: dataset2.data,
-        backgroundColor: "red",
-        borderColor: "black",
-        borderWidth: 1,
-        fill: true,
-        tension: 0.4,
       },
     ],
   };
@@ -63,10 +52,10 @@ function BarChart2(props) {
   };
 
   return (
-    <div className="bar-chart2">
+    <div className="bar-chart">
       <Bar data={data} options={options}></Bar>
     </div>
   );
 }
 
-export default BarChart2;
+export default BarChart;

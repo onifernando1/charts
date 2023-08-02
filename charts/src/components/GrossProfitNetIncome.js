@@ -5,7 +5,6 @@ import "../assets/styles/grossprofitnetincome.css";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
-  getDateAndPropertyArrayFromData,
 } from "../functions/dataExtraction";
 
 function GrossProfitNetIncome(props) {
