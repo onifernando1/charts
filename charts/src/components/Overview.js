@@ -10,6 +10,7 @@ import Ebitda from "./Ebitda";
 import EpsAndDilutedEps from "./EpsAndDilutedEps";
 import RevenueAndExpenses from "./RevenueAndExpenses";
 import InterestIncomeExpense from "./InterestIncomeExpense";
+import GrossProfitRevenue from "./GrossProfitRevenue";
 
 function Overview(props) {
   const sp500price = 457.78;
@@ -71,6 +72,9 @@ function Overview(props) {
           <div className="overview-body-middle-container">
             <div>
               <InterestIncomeExpense data={requestData} />
+            </div>
+            <div>
+              <GrossProfitRevenue data={requestData} />
             </div>
           </div>
         </div>

@@ -9,13 +9,14 @@ ChartJS.register(ArcElement, Legend, Tooltip, Title);
 function PieChart(props) {
   const pieLabels = props.labels;
   const dataset1 = props.dataset1;
+  const backgroundColors = props.colors;
 
   const data = {
     labels: pieLabels,
     datasets: [
       {
         data: dataset1,
-        backgroundColor: ["aqua", "bloodorange", "purple", "green", "pink"],
+        backgroundColor: backgroundColors,
       },
     ],
   };

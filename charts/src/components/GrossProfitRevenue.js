@@ -6,42 +6,34 @@ import {
   getDateAndPropertyArrayFromData,
 } from "../functions/dataExtraction";
 import PieChart from "./PieChart";
+import "../assets/styles/gross-profit-revenue.css";
 
 function GrossProfitRevenue(props) {
   const requestData = props.data;
   const [grossProfitArray, setGrossProfitArray] = useState("");
   const [revenueArray, setRevenueArray] = useState("");
   const [remainingRevenueArray, setRemainingRevenueArray] = useState("");
+  const [dataArray, setDataArray] = useState("");
 
   useEffect(() => {
     getGrossProfitAndRemainingRevenueArrayFromData();
   }, [props.data]);
 
   const getGrossProfitAndRemainingRevenueArrayFromData = () => {
-    const lastYearData = getXYearsDataFromRequest(requestData, 1);
-    setGrossProfitArray(getPropertyArrayFromData(lastYearData, "grossProfit"));
-    const revenueArray = getPropertyArrayFromData(lastYearData, "revenue");
-    const tempRemainingRevenueArray = getRemainingRevenueArray(
-      revenueArray,
-      grossProfitArray
-    );
-    setRemainingRevenueArray(tempRemainingRevenueArray);
-  };
-
-  const getRemainingRevenueArray = (revenueArray, grossProfitArray) => {
-    let tempArray = [];
-    for (let i = 0; i < revenueArray.length; i++) {
-      let remainingRevenue = revenueArray[i] - grossProfitArray[i];
-      tempArray.push(remainingRevenue);
-    }
-    return tempArray;
+    const lastYearData = requestData[0];
+    const grossProfit = lastYearData.grossProfit;
+    const revenue = lastYearData.revenue;
+    const remainingRevenue = revenue - grossProfit;
+    setDataArray([grossProfit, remainingRevenue]);
   };
 
   return (
     <div className="gross-profit-revenue-container">
+      <div className="gross-profit-revenue-title">Gross Profit Ratio</div>
       <PieChart
-        pieLabels={["Gross Profit", "Remaining Revenue"]}
-        dataset1={[grossProfitArray[0], remainingRevenueArray[0]]}
+        labels={["Gross Profit", "Remaining Revenue"]}
+        dataset1={dataArray}
+        colors={["aqua", "orange"]}
       />
     </div>
   );

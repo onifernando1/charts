@@ -33,7 +33,11 @@ function RevenueAndExpenses(props) {
     <>
       <div className="revenue-expenses-container">
         <div className="revenue-expenses-title">Revenue And Expenses 2022</div>
-        <PieChart labels={labels} dataset1={revenueExpenseArray} />
+        <PieChart
+          labels={labels}
+          dataset1={revenueExpenseArray}
+          colors={["aqua", "orange", "purple", "green", "pink"]}
+        />
       </div>
     </>
   );

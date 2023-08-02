@@ -8,8 +8,8 @@ function App() {
       {/* <Overview /> */}
       {/* <RevenueOverTime /> */}
       {/* <GrossProfitNetIncome /> */}
-      {/* <OverviewManager /> */}
-      <StackedBarChart />
+      <OverviewManager />
+      {/* <StackedBarChart /> */}
     </>
   );
 }
