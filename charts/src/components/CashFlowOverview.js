@@ -2,6 +2,7 @@ import React from "react";
 import StockBasedCompensation from "./StockBasedCompensation";
 import { amazonCashFlowRequestData } from "../sampleData/requestData";
 import CashEndOfPeriod from "./CashEndOfPeriod";
+import CapitalExpenditure from "./CapitalExpenditure";
 
 function CashFlowOverview(props) {
   return (
@@ -12,6 +13,7 @@ function CashFlowOverview(props) {
           <div className="overview-body-left-container">
             <StockBasedCompensation data={amazonCashFlowRequestData} />
             <CashEndOfPeriod data={amazonCashFlowRequestData} />
+            <CapitalExpenditure data={amazonCashFlowRequestData} />
           </div>
 
           <div className="overview-body-middle-container"></div>
