@@ -1,5 +1,5 @@
 import React from "react";
-import BarChart from "./BarChart";
+import BarChart2 from "./BarChart2";
 import { useState, useEffect } from "react";
 import "../assets/styles/grossprofitnetincome.css";
 import {
@@ -32,7 +32,7 @@ function GrossProfitNetIncome(props) {
       <div className="gross-profit-net-income-title">
         Gross Profit/Net income
       </div>
-      <BarChart
+      <BarChart2
         x={dateArray}
         dataset1={{ data: grossProfitArray, label: "Gross Profit" }}
         dataset2={{ data: netIncomeArray, label: "Net Income" }}

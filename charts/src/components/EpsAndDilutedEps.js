@@ -1,5 +1,5 @@
 import React from "react";
-import BarChart from "./BarChart";
+import BarChart2 from "./BarChart2";
 import { useState, useEffect } from "react";
 import { requestData } from "../sampleData/requestData";
 import "../assets/styles/epsdiluted.css";
@@ -31,7 +31,7 @@ function EpsAndDilutedEps(props) {
   return (
     <div className="eps-diluted-container">
       <div className="eps-diluted-title">EPS/Diluted EPS</div>
-      <BarChart
+      <BarChart2
         x={dateArray}
         dataset1={{ data: epsArray, label: "EPS" }}
         dataset2={{ data: dilutedEpsArray, label: "Diluted EPS" }}

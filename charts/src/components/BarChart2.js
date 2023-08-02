@@ -21,7 +21,7 @@ ChartJS.register(
   BarElement
 );
 
-function BarChart(props) {
+function BarChart2(props) {
   const xAxis = props.x;
   const dataset1 = props.dataset1;
   const dataset2 = props.dataset2;
@@ -69,4 +69,4 @@ function BarChart(props) {
   );
 }
 
-export default BarChart;
+export default BarChart2;
