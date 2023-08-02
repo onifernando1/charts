@@ -1,5 +1,6 @@
 import React from "react";
 import OverviewManager from "./components/OverviewManager";
+import StackedBarChart from "./components/StackedBarChart";
 
 function App() {
   return (
@@ -7,7 +8,8 @@ function App() {
       {/* <Overview /> */}
       {/* <RevenueOverTime /> */}
       {/* <GrossProfitNetIncome /> */}
-      <OverviewManager />
+      {/* <OverviewManager /> */}
+      <StackedBarChart />
     </>
   );
 }
