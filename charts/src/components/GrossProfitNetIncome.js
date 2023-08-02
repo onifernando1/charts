@@ -2,6 +2,11 @@ import React from "react";
 import BarChart from "./BarChart";
 import { useState, useEffect } from "react";
 import "../assets/styles/grossprofitnetincome.css";
+import {
+  getPropertyArrayFromData,
+  getXYearsDataFromRequest,
+  getDateAndPropertyArrayFromData,
+} from "../functions/dataExtraction";
 
 function GrossProfitNetIncome(props) {
   const [dateArray, setDateArray] = useState("");
@@ -72,10 +77,16 @@ function GrossProfitNetIncome(props) {
   };
 
   const getDateGrossProfitNetIncomeArraysFromOriginalRequest = () => {
-    const joinedArray = getDateGrossProfitNetIncomeDataFromOriginalRequest();
-    getDateArrayFromSortedData(joinedArray);
-    getGrossProfitArrayFromSortedData(joinedArray);
-    getNetIncomeArrayFromSortedData(joinedArray);
+    // const joinedArray = getDateGrossProfitNetIncomeDataFromOriginalRequest();
+    // getDateArrayFromSortedData(joinedArray);
+    // getGrossProfitArrayFromSortedData(joinedArray);
+    // getNetIncomeArrayFromSortedData(joinedArray);
+    const lastFiveYearsData = getXYearsDataFromRequest(requestData, 5);
+    setDateArray(getPropertyArrayFromData(lastFiveYearsData, "date"));
+    setGrossProfitArray(
+      getPropertyArrayFromData(lastFiveYearsData, "grossProfit")
+    );
+    setNetIncomeArray(getPropertyArrayFromData(lastFiveYearsData, "netIncome"));
   };
 
   return (
