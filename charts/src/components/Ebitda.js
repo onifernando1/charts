@@ -18,7 +18,6 @@ function Ebitda(props) {
   }, [props.data]);
 
   const getDateAndEbitdaArraysFromOriginalRequest = () => {
-    // const joinedArray = getDateAndEbitdaDataFrom
     const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
     setDateArray(getPropertyArrayFromData(lastTenYearsData, "date"));
     setEbitdaArray(getPropertyArrayFromData(lastTenYearsData, "ebitda"));
