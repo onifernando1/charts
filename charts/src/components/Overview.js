@@ -29,29 +29,9 @@ function Overview(props) {
   return (
     <>
       <div className="overview-container">
-        <div className="overview-title-container">
-          <div>
-            <div className="overview-title">{companySymbol}</div>
-            <div className="overview-info">{sp500info}</div>
-          </div>
-          <div>
-            <div className="overview-currency">CURRENCY $</div>
-          </div>
-          <div>
-            <div className="overview-watchlist">+ ADD TO WATCHLIST</div>
-          </div>
-        </div>
         <div className="overview-body-container">
           <div className="overview-body-left-container">
-            {/* <div>
-              <ExchangeData
-                price={sp500price}
-                percentageChange={sp500percentageChange}
-                range={sp500range}
-              />
-            </div> */}
             <div>
-              {/* <PriceHistory /> */}
               <RevenueOverTime data={requestData} />
             </div>
             <div>

@@ -9,9 +9,9 @@ function App() {
       {/* <Overview /> */}
       {/* <RevenueOverTime /> */}
       {/* <GrossProfitNetIncome /> */}
-      {/* <OverviewManager /> */}
+      <OverviewManager />
       {/* <StackedBarChart /> */}
-      <ScatterGraph />
+      {/* <ScatterGraph /> */}
     </>
   );
 }

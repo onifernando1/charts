@@ -23,6 +23,18 @@ function OverviewManager(props) {
       >
         MSFT
       </div>
+      <div className="overview-title-container">
+        <div>
+          <div className="overview-title">{currentRequestData[0].symbol}</div>
+        </div>
+        <div>
+          <div className="overview-currency">CURRENCY $</div>
+        </div>
+        <div>
+          <div className="overview-watchlist">+ ADD TO WATCHLIST</div>
+        </div>
+      </div>
+
       <Overview data={currentRequestData} />
     </>
   );
