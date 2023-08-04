@@ -25,7 +25,7 @@ function TotalLiabilities(props) {
 
   return (
     <div className="default-container">
-      <div className="total-liabilities-title">Total Assets</div>
+      <div className="total-liabilities-title">Total Liabilities</div>
       <LineGraph
         x={dateArray}
         dataset1={{ data: totalLiabilities, label: "$" }}

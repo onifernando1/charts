@@ -19,7 +19,7 @@ function LiabilitiesComposition(props) {
     const lastYearData = requestData[0];
     const accountPayables = lastYearData.accountPayables;
     const shortTermDebt = lastYearData.shortTermDebt;
-    const deferredRevenue = lastYearData.shortTermDebt;
+    const deferredRevenue = lastYearData.deferredRevenue;
     setDataArray([accountPayables, shortTermDebt, deferredRevenue]);
   };
 

@@ -15,30 +15,6 @@ function OverviewManager(props) {
     <>
       <div
         onClick={() => {
-          setCurrentRequestData(amazonRequestData);
-          setCurrentDataView(dataViewsArray[0]);
-        }}
-      >
-        Amazon Income
-      </div>
-      <div
-        onClick={() => {
-          setCurrentRequestData(amazonRequestData);
-          setCurrentDataView(dataViewsArray[1]);
-        }}
-      >
-        Amazon Cash Flow
-      </div>
-      <div
-        onClick={() => {
-          setCurrentRequestData(amazonRequestData);
-          setCurrentDataView(dataViewsArray[2]);
-        }}
-      >
-        Amazon Balance
-      </div>
-      <div
-        onClick={() => {
           setCurrentRequestData(MSFTRequestData);
           setCurrentDataView(dataViewsArray[0]);
         }}
@@ -50,10 +26,37 @@ function OverviewManager(props) {
           <div className="overview-title">{currentRequestData[0].symbol}</div>
         </div>
         <div>
-          <div className="overview-currency">CURRENCY $</div>
+          <div
+            onClick={() => {
+              setCurrentRequestData(amazonRequestData);
+              setCurrentDataView(dataViewsArray[0]);
+            }}
+            className="data-view-title"
+          >
+            Amazon Income
+          </div>
         </div>
         <div>
-          <div className="overview-watchlist">+ ADD TO WATCHLIST</div>
+          <div
+            onClick={() => {
+              setCurrentRequestData(amazonRequestData);
+              setCurrentDataView(dataViewsArray[1]);
+            }}
+            className="data-view-title"
+          >
+            Amazon Cash Flow
+          </div>
+        </div>
+        <div>
+          <div
+            onClick={() => {
+              setCurrentRequestData(amazonRequestData);
+              setCurrentDataView(dataViewsArray[2]);
+            }}
+            className="data-view-title"
+          >
+            Amazon Balance
+          </div>
         </div>
       </div>
       {currentDataView == "income" ? (
