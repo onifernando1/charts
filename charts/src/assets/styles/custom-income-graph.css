@@ -1,0 +1,7 @@
+.custom-income-graph-container.default-container {
+  height: 10rem;
+}
+
+.custom-income-graph-container li {
+  list-style-type: none;
+}

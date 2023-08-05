@@ -90,6 +90,41 @@ function LineGraphAny(props) {
           //   datasetsArray[i].fill = true;
           datasetsArray[i].tension = 0.4;
           break;
+        case 6:
+          datasetsArray[i].backgroundColor = "yellow";
+          datasetsArray[i].borderColor = "yellow";
+          datasetsArray[i].pointBorderColor = "yellow";
+          //   datasetsArray[i].fill = true;
+          datasetsArray[i].tension = 0.4;
+          break;
+        case 7:
+          datasetsArray[i].backgroundColor = "grey";
+          datasetsArray[i].borderColor = "grey";
+          datasetsArray[i].pointBorderColor = "grey";
+          //   datasetsArray[i].fill = true;
+          datasetsArray[i].tension = 0.4;
+          break;
+        case 8:
+          datasetsArray[i].backgroundColor = "blue";
+          datasetsArray[i].borderColor = "blue";
+          datasetsArray[i].pointBorderColor = "blue";
+          //   datasetsArray[i].fill = true;
+          datasetsArray[i].tension = 0.4;
+          break;
+        case 9:
+          datasetsArray[i].backgroundColor = "maroon";
+          datasetsArray[i].borderColor = "maroon";
+          datasetsArray[i].pointBorderColor = "maroon";
+          //   datasetsArray[i].fill = true;
+          datasetsArray[i].tension = 0.4;
+          break;
+        case 10:
+          datasetsArray[i].backgroundColor = "crimson";
+          datasetsArray[i].borderColor = "crimson";
+          datasetsArray[i].pointBorderColor = "crimson";
+          //   datasetsArray[i].fill = true;
+          datasetsArray[i].tension = 0.4;
+          break;
       }
     }
     return tempDatasetsArray;
@@ -161,14 +196,7 @@ function LineGraphAny(props) {
   };
 
   return (
-    <div
-      className="line-graph"
-      //   style={{ height: "50rem", width: "50rem", backgroundColor: "red" }}
-      onClick={() => {
-        showMe(data);
-        showMe(options);
-      }}
-    >
+    <div className="line-graph">
       {data ? (
         <>
           <Line data={data} options={options}></Line>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "../assets/styles/overview.css";
+import "../assets/styles/custom-income-graph.css";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
@@ -9,7 +10,15 @@ import {
 import LineGraphAny from "./LineGraphAny";
 
 function CustomIncomeGraph(props) {
-  const dataOptions = ["Revenue", "Gross Profit", "Net Income"];
+  const dataOptions = [
+    "Revenue",
+    "Gross Profit",
+    "Net Income",
+    "Ebitda",
+    "Gross Profit Ratio",
+    "Operating Income",
+    "Operating Expenses",
+  ];
 
   const [currentRequestData, setCurrentRequestData] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
@@ -19,8 +28,13 @@ function CustomIncomeGraph(props) {
   );
   const [dateArray, setDateArray] = useState("");
   const [revenueArray, setRevenueArray] = useState("");
+  const [ebitdaArray, setEbitdaArray] = useState("");
   const [grossProfitArray, setGrossProfitArray] = useState("");
   const [netIncomeArray, setNetIncomeArray] = useState("");
+  const [grossProfitRatioArray, setGrossProfitRatioArray] = useState("");
+  const [operatingIncomeArray, setOperatingIncomeArray] = useState("");
+  const [operatingExpensesArray, setOperatingExpensesArray] = useState("");
+
   const [allDatasets, setAllDatasets] = useState("");
 
   const requestData = props.data;
@@ -41,10 +55,19 @@ function CustomIncomeGraph(props) {
       getPropertyArrayFromData(lastTenYearsData, "grossProfit")
     );
     setNetIncomeArray(getPropertyArrayFromData(lastTenYearsData, "netIncome"));
+    setEbitdaArray(getPropertyArrayFromData(lastTenYearsData, "ebitda"));
+    setGrossProfitRatioArray(
+      getPropertyArrayFromData(lastTenYearsData, "grossProfitRatio")
+    );
+    setOperatingIncomeArray(
+      getPropertyArrayFromData(lastTenYearsData, "operatingIncome")
+    );
+    setOperatingExpensesArray(
+      getPropertyArrayFromData(lastTenYearsData, "operatingExpenses")
+    );
   };
 
   const handleChange = (position) => {
-    console.log(checkedState);
     const updatedCheckedState = checkedState.map((item, index) => {
       if (index === position) {
         return !item;
@@ -59,8 +82,6 @@ function CustomIncomeGraph(props) {
   const createDatasets = () => {
     const labelToArrayObj = linkLabelsToArray();
     let allDatasetsArray = [];
-
-    console.log(checkedState);
 
     checkedState.forEach((item, index) => {
       if (item == true) {
@@ -81,13 +102,17 @@ function CustomIncomeGraph(props) {
       Revenue: revenueArray,
       "Gross Profit": grossProfitArray,
       "Net Income": netIncomeArray,
+      Ebitda: ebitdaArray,
+      "Gross Profit Ratio": grossProfitRatioArray,
+      "Operating Income": operatingIncomeArray,
+      "Operating Expenses": operatingExpensesArray,
     };
   };
 
   return (
     <>
-      <div className="default-container">
-        <div className="revnue-over-time-title">Custom </div>
+      <div className="custom-income-graph-container default-container">
+        <div className="revnue-over-time-title"> </div>
         <div className="custom-income-form">
           {dataOptions.map((param, index) => {
             return (
@@ -103,7 +128,6 @@ function CustomIncomeGraph(props) {
                       onChange={() => handleChange(index)}
                     />
                     <label htmlFor={`custom-checkbox-${index}`}>{param}</label>
-                    <div>{param}</div>
                   </div>
                 </li>
               </>
@@ -111,7 +135,7 @@ function CustomIncomeGraph(props) {
           })}
         </div>
       </div>
-      <div>
+      <div className="line-graph-container">
         <LineGraphAny datasets={allDatasets} x={dateArray} />
       </div>
     </>
