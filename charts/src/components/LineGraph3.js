@@ -34,27 +34,27 @@ function LineGraph3(props) {
       {
         label: dataset1.label,
         data: dataset1.data,
-        backgroundColor: "aqua",
+        backgroundColor: "black",
         borderColor: "black",
-        pointBorderColor: "aqua",
+        pointBorderColor: "black",
         fill: true,
         tension: 0.4,
       },
       {
         label: dataset2.label,
         data: dataset2.data,
-        backgroundColor: "aqua",
+        backgroundColor: "red",
         borderColor: "red",
-        pointBorderColor: "aqua",
+        pointBorderColor: "red",
         fill: true,
         tension: 0.4,
       },
       {
         label: dataset3.label,
         data: dataset3.data,
-        backgroundColor: "aqua",
+        backgroundColor: "green",
         borderColor: "green",
-        pointBorderColor: "aqua",
+        pointBorderColor: "green",
         fill: true,
         tension: 0.4,
       },
@@ -63,7 +63,7 @@ function LineGraph3(props) {
 
   const options = {
     plugins: {
-      legend: false,
+      legend: true,
     },
     scales: {
       y: {

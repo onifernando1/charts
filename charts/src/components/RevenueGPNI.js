@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import LineGraph from "./LineGraph";
-import "../assets/styles/revenueovertime.css";
+import "../assets/styles/overview.css";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
   getDateAndPropertyArrayFromData,
 } from "../functions/dataExtraction";
+import LineGraph3 from "./LineGraph3";
+import LineGraphAny from "./LineGraphAny";
 
 function RevenueGPNI(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);
@@ -37,11 +38,18 @@ function RevenueGPNI(props) {
         Revenue, Gross Profit, Net Income
       </div>
       <div className="revenue-line-graph">
-        <LineGraph
+        {/* <LineGraph3
           x={dateArray}
-          dataset1={{ data: revenueArray, label: "$" }}
-          dataset2={{ data: grossProfitArray, label: "$" }}
-          dataset3={{ data: netIncomeArray, label: "$" }}
+          dataset1={{ data: revenueArray, label: "Revenue" }}
+          dataset2={{ data: grossProfitArray, label: "Gross Profit" }}
+          dataset3={{ data: netIncomeArray, label: "Net Income" }}
+        /> */}
+        <LineGraphAny
+          datasets={[
+            { label: "Revenue", data: revenueArray },
+            { label: "Gross Profit", data: grossProfitArray },
+          ]}
+          x={dateArray}
         />
       </div>
     </div>

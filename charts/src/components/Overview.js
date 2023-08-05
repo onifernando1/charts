@@ -11,6 +11,7 @@ import EpsAndDilutedEps from "./EpsAndDilutedEps";
 import RevenueAndExpenses from "./RevenueAndExpenses";
 import InterestIncomeExpense from "./InterestIncomeExpense";
 import GrossProfitRevenue from "./GrossProfitRevenue";
+import RevenueGPNI from "./RevenueGPNI";
 
 function Overview(props) {
   const sp500price = 457.78;
@@ -40,6 +41,9 @@ function Overview(props) {
             </div>
             <div>
               <Ebitda data={requestData} />
+            </div>
+            <div>
+              <RevenueGPNI data={requestData} />
             </div>
           </div>
           <div className="overview-body-middle-container">
