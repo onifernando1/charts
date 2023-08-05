@@ -37,7 +37,6 @@ function CustomIncomeGraph(props) {
       getPropertyArrayFromData(lastTenYearsData, "grossProfit")
     );
     setNetIncomeArray(getPropertyArrayFromData(lastTenYearsData, "netIncome"));
-    createDatasets();
   };
 
   const handleChange = (position) => {
@@ -48,18 +47,29 @@ function CustomIncomeGraph(props) {
         return item;
       }
     });
+
     setCheckedState(updatedCheckedState);
+
+    createDatasets();
   };
 
   const createDatasets = () => {
     const labelToArrayObj = linkLabelsToArray();
-    const allDatasets = [
-      { label: "Revenue", data: labelToArrayObj["Revenue"] },
-      { label: "Gross Profit", data: labelToArrayObj["Gross Profit"] },
-      { label: "Net Income", data: labelToArrayObj["Net Income"] },
-    ];
-    setAllDatasets(allDatasets);
-    console.log(allDatasets);
+    let allDatasetsArray = [];
+
+    checkedState.forEach((item, index) => {
+      if (item == true) {
+        // if it is checked
+        let obj = {
+          label: dataOptions[index],
+          data: labelToArrayObj[dataOptions[index]],
+        };
+        allDatasetsArray.push(obj);
+      }
+    });
+
+    setAllDatasets(allDatasetsArray);
+    console.log(allDatasetsArray);
   };
 
   const linkLabelsToArray = () => {
