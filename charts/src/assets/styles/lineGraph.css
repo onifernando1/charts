@@ -4,3 +4,7 @@
   width: 100%;
   //marker remove */
 }
+
+.line-graph.any {
+  padding: 1rem;
+}

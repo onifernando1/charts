@@ -196,7 +196,7 @@ function LineGraphAny(props) {
   };
 
   return (
-    <div className="line-graph">
+    <div className="line-graph any">
       {data ? (
         <>
           <Line data={data} options={options}></Line>
