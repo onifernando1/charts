@@ -12,6 +12,7 @@ import RevenueAndExpenses from "./RevenueAndExpenses";
 import InterestIncomeExpense from "./InterestIncomeExpense";
 import GrossProfitRevenue from "./GrossProfitRevenue";
 import RevenueGPNI from "./RevenueGPNI";
+import CustomIncomeGraph from "./CustomIncomeGraph";
 
 function Overview(props) {
   const sp500price = 457.78;
@@ -44,6 +45,9 @@ function Overview(props) {
             </div>
             <div>
               <RevenueGPNI data={requestData} />
+            </div>
+            <div>
+              <CustomIncomeGraph data={requestData} />
             </div>
           </div>
           <div className="overview-body-middle-container">

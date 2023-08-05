@@ -8,9 +8,18 @@ import {
 } from "../functions/dataExtraction";
 import LineGraphAny from "./LineGraphAny";
 
-function RevenueGPNI(props) {
+function CustomIncomeGraph(props) {
+  const dataOptions = ["Revenue", "Gross Profit", "Net Income"];
+
   const [currentRequestData, setCurrentRequestData] = useState([]);
-  const [isChecked, setIsChecked] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+
+  const generateTickboxArray = () => {
+    const a = new Array(dataOptions.length).fill(false);
+    return [false, false, false, false, false];
+  };
+
+  const [checkedState, setCheckedState] = useState(generateTickboxArray());
   const [dateArray, setDateArray] = useState("");
   const [revenueArray, setRevenueArray] = useState("");
   const [grossProfitArray, setGrossProfitArray] = useState("");
@@ -32,34 +41,45 @@ function RevenueGPNI(props) {
     setNetIncomeArray(getPropertyArrayFromData(lastTenYearsData, "netIncome"));
   };
 
-  const handleChange = () => {
-    setIsChecked(!isChecked);
+  const handleChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) => {
+      if (index === position) {
+        return !item;
+      } else {
+        return item;
+      }
+    });
+    setCheckedState(updatedCheckedState);
   };
 
   return (
     <div className="default-container">
       <div className="revnue-over-time-title">Custom </div>
-      <div className="custom-income-checkbox"></div>
-      <input
-        type="checkbox"
-        id="param"
-        name="param"
-        value="Revenue"
-        checked={isChecked}
-        onChange={handleChange}
-      ></input>
-      <div>
-        <LineGraphAny
-          datasets={[
-            { label: "Revenue", data: revenueArray },
-            { label: "Gross Profit", data: grossProfitArray },
-            { label: "Net Income ", data: netIncomeArray },
-          ]}
-          x={dateArray}
-        />
+      <div className="custom-income-form">
+        {dataOptions.map((param, index) => {
+          return (
+            <>
+              <li key={index}>
+                <div className="options-list-item">
+                  <input
+                    type="checkbox"
+                    id={`custom-checkbox-${index}`}
+                    name={param}
+                    value={param}
+                    checked={checkedState[index]}
+                    onChange={() => handleChange(index)}
+                  />
+                  <label htmlFor={`custom-checkbox-${index}`}>{param}</label>
+                </div>
+              </li>
+            </>
+          );
+        })}
       </div>
     </div>
   );
+
+  //   );
 }
 
-export default RevenueGPNI;
+export default CustomIncomeGraph;
