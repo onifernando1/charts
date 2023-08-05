@@ -6,11 +6,11 @@ import {
   getXYearsDataFromRequest,
   getDateAndPropertyArrayFromData,
 } from "../functions/dataExtraction";
-import LineGraph3 from "./LineGraph3";
 import LineGraphAny from "./LineGraphAny";
 
 function RevenueGPNI(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);
+  const [isChecked, setIsChecked] = useState("");
   const [dateArray, setDateArray] = useState("");
   const [revenueArray, setRevenueArray] = useState("");
   const [grossProfitArray, setGrossProfitArray] = useState("");
@@ -32,18 +32,23 @@ function RevenueGPNI(props) {
     setNetIncomeArray(getPropertyArrayFromData(lastTenYearsData, "netIncome"));
   };
 
+  const handleChange = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
     <div className="default-container">
-      <div className="revnue-over-time-title">
-        Revenue, Gross Profit, Net Income
-      </div>
-      <div className="revenue-line-graph">
-        {/* <LineGraph3
-          x={dateArray}
-          dataset1={{ data: revenueArray, label: "Revenue" }}
-          dataset2={{ data: grossProfitArray, label: "Gross Profit" }}
-          dataset3={{ data: netIncomeArray, label: "Net Income" }}
-        /> */}
+      <div className="revnue-over-time-title">Custom </div>
+      <div className="custom-income-checkbox"></div>
+      <input
+        type="checkbox"
+        id="param"
+        name="param"
+        value="Revenue"
+        checked={isChecked}
+        onChange={handleChange}
+      ></input>
+      <div>
         <LineGraphAny
           datasets={[
             { label: "Revenue", data: revenueArray },

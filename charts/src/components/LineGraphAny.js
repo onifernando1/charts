@@ -71,6 +71,27 @@ function LineGraphAny(props) {
           //   datasetsArray[i].fill = true;
           datasetsArray[i].tension = 0.4;
           break;
+        case 3:
+          datasetsArray[i].backgroundColor = "pink";
+          datasetsArray[i].borderColor = "pink";
+          datasetsArray[i].pointBorderColor = "pink";
+          //   datasetsArray[i].fill = true;
+          datasetsArray[i].tension = 0.4;
+          break;
+        case 4:
+          datasetsArray[i].backgroundColor = "orange";
+          datasetsArray[i].borderColor = "orange";
+          datasetsArray[i].pointBorderColor = "orange";
+          //   datasetsArray[i].fill = true;
+          datasetsArray[i].tension = 0.4;
+          break;
+        case 5:
+          datasetsArray[i].backgroundColor = "purple";
+          datasetsArray[i].borderColor = "purple";
+          datasetsArray[i].pointBorderColor = "purple";
+          //   datasetsArray[i].fill = true;
+          datasetsArray[i].tension = 0.4;
+          break;
       }
     }
     return tempDatasetsArray;
@@ -126,7 +147,7 @@ function LineGraphAny(props) {
 
   const options = {
     plugins: {
-      legend: false,
+      legend: true,
     },
     scales: {
       y: {
