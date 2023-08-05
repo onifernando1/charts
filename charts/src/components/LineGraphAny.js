@@ -31,10 +31,8 @@ function LineGraphAny(props) {
   useEffect(() => {
     let tDatasetsArray = getDatasets();
     const formattedDataA = formatDatasets(tDatasetsArray);
-    console.log(formattedDataA);
     setFormattedDatasetsArray(formattedDataA);
     const tempData = createDataFromArrays(formattedDataA);
-    console.log(tempData);
     setData(tempData);
   }, [props.datasets]);
 

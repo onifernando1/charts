@@ -29,6 +29,10 @@ function CustomIncomeGraph(props) {
     getDateAndRevenueArraysFromOriginalRequest();
   }, [props.data]);
 
+  useEffect(() => {
+    createDatasets();
+  }, [checkedState]);
+
   const getDateAndRevenueArraysFromOriginalRequest = () => {
     const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
     setDateArray(getPropertyArrayFromData(lastTenYearsData, "date"));
@@ -40,6 +44,7 @@ function CustomIncomeGraph(props) {
   };
 
   const handleChange = (position) => {
+    console.log(checkedState);
     const updatedCheckedState = checkedState.map((item, index) => {
       if (index === position) {
         return !item;
@@ -49,13 +54,13 @@ function CustomIncomeGraph(props) {
     });
 
     setCheckedState(updatedCheckedState);
-
-    createDatasets();
   };
 
   const createDatasets = () => {
     const labelToArrayObj = linkLabelsToArray();
     let allDatasetsArray = [];
+
+    console.log(checkedState);
 
     checkedState.forEach((item, index) => {
       if (item == true) {
@@ -69,7 +74,6 @@ function CustomIncomeGraph(props) {
     });
 
     setAllDatasets(allDatasetsArray);
-    console.log(allDatasetsArray);
   };
 
   const linkLabelsToArray = () => {
