@@ -60,7 +60,7 @@ function OverviewManager(props) {
         </div>
       </div>
       {currentDataView == "income" ? (
-        <Overview data={currentRequestData} />
+        <Overview data={currentRequestData} dataCompanyB={MSFTRequestData} />
       ) : null}
       {currentDataView == "cashFlow" ? <CashFlowOverview /> : null}
       {currentDataView == "balance" ? <BalanceOverview /> : null}
