@@ -33,10 +33,11 @@ export const getDateAndPropertyArrayFromData = (data, property) => {
 export const indexNumberConverter = (array) => {
   // must be sorted by year, ascending
   let tempArray = [];
+  let originalZero = array[0];
   for (let i = 0; i < array.length; i++) {
-    let indexValue = (array[i] / array[0]) * 100;
+    let indexValue = (array[i] / originalZero) * 100;
     tempArray.push(indexValue);
   }
-  console.log(tempArray);
+  // console.log(tempArray);
   return tempArray;
 };

@@ -5,7 +5,7 @@ import "../assets/styles/custom-income-graph.css";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
-  getDateAndPropertyArrayFromData,
+  indexNumberConverter,
 } from "../functions/dataExtraction";
 import LineGraphAny from "./LineGraphAny";
 
@@ -34,6 +34,7 @@ function CustomIncomeGraph(props) {
   const [grossProfitRatioArray, setGrossProfitRatioArray] = useState("");
   const [operatingIncomeArray, setOperatingIncomeArray] = useState("");
   const [operatingExpensesArray, setOperatingExpensesArray] = useState("");
+  const [showIndex, setShowIndex] = useState(false);
 
   const [allDatasets, setAllDatasets] = useState("");
 
@@ -109,10 +110,66 @@ function CustomIncomeGraph(props) {
     };
   };
 
+  const linkLabelsToIndexArray = () => {
+    Revenue: indexNumberConverter(revenueArray) ,
+      "Gross Profit": indexNumberConverter(grossProfitArray),
+      "Net Income": indexNumberConverter(netIncomeArray),
+      Ebitda: indexNumberConverter(ebitdaArray),
+      "Gross Profit Ratio": indexNumberConverter(grossProfitRatioArray),
+      "Operating Income": indexNumberConverter(operatingIncomeArray),
+      "Operating Expenses": indexNumberConverter(operatingExpensesArray) ,
+  };
+
+  const toggleIndex = () => {
+    if (showIndex == false) {
+      console.log("false");
+      createIndexDatasets(allDatasets);
+      setShowIndex(true);
+      console.log(allDatasets);
+    } else if (showIndex == true) {
+      console.log("true");
+      createNormalDatasets();
+      console.log(allDatasets);
+      setShowIndex(false);
+    }
+  };
+
+  const createIndexDatasets = () => {
+    const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
+    const labelToArrayObj = linkLabelsToIndexArray();
+    let allDatasetsArray = [];
+    let allIndexDatasets = [];
+    const indexRevenueArray = getDateAndRevenueArraysFromOriginalRequest(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsData, "revenue")
+      )
+    );
+
+    checkedState.forEach((item, index) => {
+      if (item == true) {
+        // if it is checked
+        let obj = {
+          label: dataOptions[index],
+          data: labelToArrayObj[dataOptions[index]],
+        };
+        allDatasetsArray.push(obj);
+      }
+    });
+
+    console.log(allDatasets);
+    console.log(allIndexDatasets);
+
+    return allIndexDatasets;
+  };
+
+  const createNormalDatasets = () => {};
+
   return (
     <>
       <div className="custom-income-graph-container default-container">
-        <div className="revnue-over-time-title"> </div>
+        <div className="revenue-over-time-title"> </div>
+        <button onClick={toggleIndex}>Toggle Index</button>
+
         <div className="custom-income-form">
           {dataOptions.map((param, index) => {
             return (
