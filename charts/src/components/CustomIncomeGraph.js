@@ -111,13 +111,15 @@ function CustomIncomeGraph(props) {
   };
 
   const linkLabelsToIndexArray = () => {
-    Revenue: indexNumberConverter(revenueArray) ,
+    return {
+      Revenue: indexNumberConverter(revenueArray),
       "Gross Profit": indexNumberConverter(grossProfitArray),
       "Net Income": indexNumberConverter(netIncomeArray),
       Ebitda: indexNumberConverter(ebitdaArray),
       "Gross Profit Ratio": indexNumberConverter(grossProfitRatioArray),
       "Operating Income": indexNumberConverter(operatingIncomeArray),
-      "Operating Expenses": indexNumberConverter(operatingExpensesArray) ,
+      "Operating Expenses": indexNumberConverter(operatingExpensesArray),
+    };
   };
 
   const toggleIndex = () => {
@@ -125,25 +127,17 @@ function CustomIncomeGraph(props) {
       console.log("false");
       createIndexDatasets(allDatasets);
       setShowIndex(true);
-      console.log(allDatasets);
     } else if (showIndex == true) {
       console.log("true");
       createNormalDatasets();
-      console.log(allDatasets);
       setShowIndex(false);
     }
   };
 
   const createIndexDatasets = () => {
-    const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
     const labelToArrayObj = linkLabelsToIndexArray();
     let allDatasetsArray = [];
     let allIndexDatasets = [];
-    const indexRevenueArray = getDateAndRevenueArraysFromOriginalRequest(
-      indexNumberConverter(
-        getPropertyArrayFromData(lastTenYearsData, "revenue")
-      )
-    );
 
     checkedState.forEach((item, index) => {
       if (item == true) {
@@ -152,12 +146,9 @@ function CustomIncomeGraph(props) {
           label: dataOptions[index],
           data: labelToArrayObj[dataOptions[index]],
         };
-        allDatasetsArray.push(obj);
+        allIndexDatasets.push(obj);
       }
     });
-
-    console.log(allDatasets);
-    console.log(allIndexDatasets);
 
     return allIndexDatasets;
   };
@@ -192,9 +183,15 @@ function CustomIncomeGraph(props) {
           })}
         </div>
       </div>
-      <div className="line-graph-container">
-        <LineGraphAny datasets={allDatasets} x={dateArray} />
-      </div>
+      {!showIndex ? (
+        <div className="line-graph-container">
+          <LineGraphAny datasets={allDatasets} x={dateArray} />
+        </div>
+      ) : (
+        <div className="line-graph-container">
+          <LineGraphAny datasets={createIndexDatasets()} x={dateArray} />
+        </div>
+      )}
     </>
   );
 }
