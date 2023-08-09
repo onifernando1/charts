@@ -6,16 +6,35 @@ import {
   getXYearsDataFromRequest,
   indexNumberConverter,
 } from "../functions/dataExtraction";
-import LineGraph3 from "./LineGraph3";
 import LineGraphAny from "./LineGraphAny";
-import "../assets/styles/income-compare.csss";
 
 function IncomeCompareGraph1(props) {
+  const dataOptions = [
+    "Revenue",
+    "Gross Profit",
+    "Net Income",
+    "Ebitda",
+    "Gross Profit Ratio",
+    "Operating Income",
+    "Operating Expenses",
+  ];
   const [currentRequestData, setCurrentRequestData] = useState([]);
   const [revenueCompanyAArray, setRevenueCompantAArray] = useState("");
   const [revenueCompanyBArray, setRevenueCompanyBArray] = useState("");
+  const [checkedState, setCheckedState] = useState(
+    new Array(dataOptions.length).fill(false)
+  );
 
   const [dateArray, setDateArray] = useState("");
+
+  //MixedArray
+  const [revenueArray, setRevenueArray] = useState("");
+  const [ebitdaArray, setEbitdaArray] = useState("");
+  const [grossProfitArray, setGrossProfitArray] = useState("");
+  const [netIncomeArray, setNetIncomeArray] = useState("");
+  const [grossProfitRatioArray, setGrossProfitRatioArray] = useState("");
+  const [operatingIncomeArray, setOperatingIncomeArray] = useState("");
+  const [operatingExpensesArray, setOperatingExpensesArray] = useState("");
 
   //Company A
   const [revenueArrayA, setRevenueArrayA] = useState("");
@@ -38,38 +57,160 @@ function IncomeCompareGraph1(props) {
   const requestDataA = props.data;
   const requestDataB = props.dataCompanyB;
 
-  const dataOptions = [
-    "Revenue",
-    "Gross Profit",
-    "Net Income",
-    "Ebitda",
-    "Gross Profit Ratio",
-    "Operating Income",
-    "Operating Expenses",
-  ];
-
   useEffect(() => {
-    getDateAndRevenueArraysFromOriginalRequest();
+    getIndexArraysFromOriginalRequest();
   }, [props.data]);
 
-  const getDateAndRevenueArraysFromOriginalRequest = () => {
-    const lastTenYearsData = getXYearsDataFromRequest(requestDataA, 10);
-    const lastTenYearBData = getXYearsDataFromRequest(requestDataB, 10);
-    setDateArray(getPropertyArrayFromData(lastTenYearsData, "date"));
-    setRevenueCompantAArray(
+  useEffect(() => {
+    createDatasets();
+  }, [checkedState]);
+
+  const getIndexArraysFromOriginalRequest = () => {
+    const lastTenYearsDataA = getXYearsDataFromRequest(requestDataA, 10);
+    setDateArray(getPropertyArrayFromData(lastTenYearsDataA, "date"));
+
+    //Company A
+
+    setRevenueArrayA(
       indexNumberConverter(
-        getPropertyArrayFromData(lastTenYearsData, "revenue")
+        getPropertyArrayFromData(lastTenYearsDataA, "revenue")
       )
     );
-    setRevenueCompanyBArray(
+    setGrossProfitArrayA(
       indexNumberConverter(
-        getPropertyArrayFromData(lastTenYearBData, "revenue")
+        getPropertyArrayFromData(lastTenYearsDataA, "grossProfit")
       )
     );
+    setNetIncomeArrayA(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataA, "netIncome")
+      )
+    );
+    setEbitdaArrayA(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataA, "ebitda")
+      )
+    );
+    setGrossProfitRatioArrayA(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataA, "grossProfitRatio")
+      )
+    );
+    setOperatingIncomeArrayA(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataA, "operatingIncome")
+      )
+    );
+    setOperatingExpensesArrayA(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataA, "operatingExpenses")
+      )
+    );
+
+    //Company B
+
+    const lastTenYearsDataB = getXYearsDataFromRequest(requestDataB, 10);
+
+    setRevenueArrayB(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataB, "revenue")
+      )
+    );
+    setGrossProfitArrayB(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataB, "grossProfit")
+      )
+    );
+    setNetIncomeArrayB(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataB, "netIncome")
+      )
+    );
+    setEbitdaArrayB(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataB, "ebitda")
+      )
+    );
+    setGrossProfitRatioArrayB(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataB, "grossProfitRatio")
+      )
+    );
+    setOperatingIncomeArrayB(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataB, "operatingIncome")
+      )
+    );
+    setOperatingExpensesArrayB(
+      indexNumberConverter(
+        getPropertyArrayFromData(lastTenYearsDataB, "operatingExpenses")
+      )
+    );
+
+    //Combined Array
+
+    setRevenueArray([...revenueArrayA, ...revenueArrayB]);
+    setGrossProfitArray([...grossProfitArrayA, ...grossProfitArrayB]);
+    setNetIncomeArray([...netIncomeArrayA, ...netIncomeArrayB]);
+    setEbitdaArray([...ebitdaArrayA, ...ebitdaArrayB]);
+    setGrossProfitArray([...grossProfitArrayA, ...grossProfitArrayB]);
+    setOperatingIncomeArray([
+      ...operatingIncomeArrayA,
+      ...operatingExpensesArrayB,
+    ]);
+    setOperatingExpensesArray([
+      ...operatingExpensesArrayA,
+      ...operatingExpensesArrayB,
+    ]);
+  };
+
+  const handleChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) => {
+      if (index === position) {
+        return !item;
+      } else {
+        return item;
+      }
+    });
+
+    setCheckedState(updatedCheckedState);
+  };
+
+  const createDatasets = () => {
+    const labelToArrayObj = linkLabelsToArray();
+    let allDatasetsArray = [];
+
+    checkedState.forEach((item, index) => {
+      if (item == true) {
+        // if it is checked
+        let obj = {
+          label: dataOptions[index],
+          data: labelToArrayObj[dataOptions[index]],
+        };
+        allDatasetsArray.push(obj);
+      }
+    });
+
+    setAllDatasets(allDatasetsArray);
+  };
+
+  const linkLabelsToArray = () => {
+    return {
+      Revenue: revenueArray,
+      "Gross Profit": grossProfitArray,
+      "Net Income": netIncomeArray,
+      Ebitda: ebitdaArray,
+      "Gross Profit Ratio": grossProfitRatioArray,
+      "Operating Income": operatingIncomeArray,
+      "Operating Expenses": operatingExpensesArray,
+    };
   };
 
   return (
-    <div className="income-compare default-container">
+    <div
+      className="income-compare default-container"
+      style={{ marginTop: "20rem" }}
+    >
       <div>Compare </div>
       <div className="custom-compare-form">
         <div className="custom-income-form">
@@ -94,7 +235,7 @@ function IncomeCompareGraph1(props) {
           })}
         </div>
       </div>
-      <div>
+      {/* <div>
         <LineGraphAny
           datasets={[
             { label: "Revenue Amazon", data: revenueCompanyAArray },
@@ -102,7 +243,7 @@ function IncomeCompareGraph1(props) {
           ]}
           x={dateArray}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -14,6 +14,7 @@ import GrossProfitRevenue from "./GrossProfitRevenue";
 import RevenueGPNI from "./RevenueGPNI";
 import CustomIncomeGraph from "./CustomIncomeGraph";
 import IncomeCompareIndex from "./IncomeCompareIndex";
+import IncomeCompareGraph1 from "./IncomeCompareGraph1";
 
 function Overview(props) {
   const sp500price = 457.78;
@@ -71,6 +72,12 @@ function Overview(props) {
             </div>
             <div>
               <GrossProfitRevenue data={requestData} />
+            </div>
+            <div>
+              <IncomeCompareGraph1
+                data={requestData}
+                dataCompanyB={props.dataCompanyB}
+              />
             </div>
           </div>
         </div>
