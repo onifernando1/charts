@@ -56,10 +56,26 @@ function IncomeCompareGraph1(props) {
 
   const requestDataA = props.data;
   const requestDataB = props.dataCompanyB;
+  const [allDatasets, setAllDatasets] = useState("");
 
   useEffect(() => {
     getIndexArraysFromOriginalRequest();
   }, [props.data]);
+
+  useEffect(() => {
+    combineArrays();
+  }, [
+    revenueArrayA,
+    revenueArrayB,
+    grossProfitArrayA,
+    grossProfitArrayB,
+    netIncomeArrayA,
+    netIncomeArrayB,
+    ebitdaArrayA,
+    ebitdaArrayB,
+    operatingIncomeArrayA,
+    operatingExpensesArrayB,
+  ]);
 
   useEffect(() => {
     createDatasets();
@@ -146,21 +162,22 @@ function IncomeCompareGraph1(props) {
         getPropertyArrayFromData(lastTenYearsDataB, "operatingExpenses")
       )
     );
+  };
 
+  const combineArrays = () => {
     //Combined Array
 
-    setRevenueArray([...revenueArrayA, ...revenueArrayB]);
-    setGrossProfitArray([...grossProfitArrayA, ...grossProfitArrayB]);
-    setNetIncomeArray([...netIncomeArrayA, ...netIncomeArrayB]);
-    setEbitdaArray([...ebitdaArrayA, ...ebitdaArrayB]);
-    setGrossProfitArray([...grossProfitArrayA, ...grossProfitArrayB]);
+    setRevenueArray([[...revenueArrayA], [...revenueArrayB]]);
+    setGrossProfitArray([[...grossProfitArrayA], [...grossProfitArrayB]]);
+    setNetIncomeArray([[...netIncomeArrayA], [...netIncomeArrayB]]);
+    setEbitdaArray([[...ebitdaArrayA], [...ebitdaArrayB]]);
     setOperatingIncomeArray([
-      ...operatingIncomeArrayA,
-      ...operatingExpensesArrayB,
+      [...operatingIncomeArrayA],
+      [...operatingExpensesArrayB],
     ]);
     setOperatingExpensesArray([
-      ...operatingExpensesArrayA,
-      ...operatingExpensesArrayB,
+      [...operatingExpensesArrayA],
+      [...operatingExpensesArrayB],
     ]);
   };
 
@@ -184,10 +201,20 @@ function IncomeCompareGraph1(props) {
       if (item == true) {
         // if it is checked
         let obj = {
-          label: dataOptions[index],
-          data: labelToArrayObj[dataOptions[index]],
+          label: dataOptions[index] + " Amazon",
+          data: labelToArrayObj[dataOptions[index]][0],
         };
         allDatasetsArray.push(obj);
+
+        let obj2 = {
+          label: dataOptions[index] + " MSFT",
+          data: labelToArrayObj[dataOptions[index]][1],
+        };
+        allDatasetsArray.push(obj2);
+
+        console.log(labelToArrayObj[dataOptions[index]]);
+        console.log(dataOptions[index]);
+        console.log(labelToArrayObj);
       }
     });
 
@@ -227,7 +254,7 @@ function IncomeCompareGraph1(props) {
                       checked={checkedState[index]}
                       onChange={() => handleChange(index)}
                     />
-                    <label htmlFor={`custom-checkbox-${index}`}>{param}</label>
+                    <label htmlFor={`compare-checkbox-${index}`}>{param}</label>
                   </div>
                 </li>
               </>
@@ -235,15 +262,9 @@ function IncomeCompareGraph1(props) {
           })}
         </div>
       </div>
-      {/* <div>
-        <LineGraphAny
-          datasets={[
-            { label: "Revenue Amazon", data: revenueCompanyAArray },
-            { label: "Revenue MSFT", data: revenueCompanyBArray },
-          ]}
-          x={dateArray}
-        />
-      </div> */}
+      <div className="line-graph-container">
+        <LineGraphAny datasets={allDatasets} x={dateArray} />
+      </div>
     </div>
   );
 }
