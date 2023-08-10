@@ -25,6 +25,7 @@ function IncomeTable(props) {
   const [revenueTableObject, setRevenueTableObject] = useState({});
   const [netIncomeObject, setNetIncomeObject] = useState({});
   const [joinedDataArray, setJoinedDataArray] = useState({});
+  const [finalColumnsArray, setFinalColumnsArray] = useState([]);
 
   const requestData = props.data;
 
@@ -77,6 +78,8 @@ function IncomeTable(props) {
     const tempA = [incomeTable, revTable];
     setJoinedDataArray(tempA);
     console.log(tempA);
+
+    getAndSetFinalColumnsArray();
   };
 
   const createTableObject = (propertyTitle, property, dataArray, yearArray) => {
@@ -97,31 +100,53 @@ function IncomeTable(props) {
     return tempArray;
   };
 
+  const createColumns = (yearArray) => {
+    let colArray = [{ Header: "", accessor: "category" }];
+    for (let i = 0; i < yearArray.length; i++) {
+      let tempObj = { Header: yearArray[i], accessor: yearArray[i] };
+      colArray.push(tempObj);
+    }
+    return colArray;
+  };
+
+  const getAndSetFinalColumnsArray = () => {
+    const currentLastFiveYearsDataDescending =
+      getXYearsDataFromRequestNewestToOldest(requestData, 5);
+    let currentDate = getPropertyArrayFromData(
+      currentLastFiveYearsDataDescending,
+      "date"
+    );
+    let currentYearArray = getYearArray(currentDate);
+    setFinalColumnsArray(createColumns(currentYearArray));
+  };
+
   const columns = useMemo(
-    () => [
-      { Header: "Title", accessor: "category" },
-      {
-        Header: "2022",
-        accessor: "2022",
-      },
-      {
-        Header: "2021",
-        accessor: "2021",
-      },
-      {
-        Header: "2020",
-        accessor: "2020",
-      },
-      {
-        Header: "2019",
-        accessor: "2019",
-      },
-      {
-        Header: "2018",
-        accessor: "2018",
-      },
-    ],
-    []
+    () =>
+      // [
+      //   { Header: "", accessor: "category" },
+      //   {
+      //     Header: "2022",
+      //     accessor: "2022",
+      //   },
+      //   {
+      //     Header: "2021",
+      //     accessor: "2021",
+      //   },
+      //   {
+      //     Header: "2020",
+      //     accessor: "2020",
+      //   },
+      //   {
+      //     Header: "2019",
+      //     accessor: "2019",
+      //   },
+      //   {
+      //     Header: "2018",
+      //     accessor: "2018",
+      //   },
+      // ]
+      finalColumnsArray,
+    [finalColumnsArray]
   );
 
   return (
