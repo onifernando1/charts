@@ -68,6 +68,7 @@ function OverviewManager(props) {
           data={currentRequestData}
           dataCompanyB={MSFTRequestData}
           balanceData={amazonBalanceData}
+          cashFlowData={amazonCashFlowRequestData}
         />
       ) : null}
       {currentDataView == "cashFlow" ? <CashFlowOverview /> : null}
