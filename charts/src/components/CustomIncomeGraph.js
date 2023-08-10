@@ -159,7 +159,7 @@ function CustomIncomeGraph(props) {
   return (
     <>
       <div className="custom-income-graph-container default-container">
-        <div className="revenue-over-time-title"> </div>
+        <div className="graph-title">Income</div>
         {/* <button onClick={toggleIndex}>Toggle Index</button> */}
 
         <div className="custom-income-form">

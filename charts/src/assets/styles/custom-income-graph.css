@@ -3,13 +3,27 @@ li {
 }
 
 .custom-income-graph-container.default-container {
-  height: 40rem;
-  width: 60rem;
+  height: 45rem;
+  width: 70rem;
+  background-color: rgb(40, 40, 40);
+}
+
+.custom-income-graph-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-income-form {
   margin-bottom: 2rem;
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   justify-content: center;
+}
+
+.options-list-item > input {
+  accent-color: rgb(255, 122, 60);
+  background-color: rgb(255, 122, 60);
+  color: rgb(255, 122, 60);
 }
