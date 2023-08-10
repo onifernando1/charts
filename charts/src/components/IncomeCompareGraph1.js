@@ -238,7 +238,7 @@ function IncomeCompareGraph1(props) {
       className="income-compare default-container"
       style={{ marginTop: "20rem" }}
     >
-      <div>Compare </div>
+      <div>Compare Index</div>
       <div className="custom-compare-form">
         <div className="custom-income-form">
           {dataOptions.map((param, index) => {

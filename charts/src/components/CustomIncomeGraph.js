@@ -8,6 +8,7 @@ import {
   indexNumberConverter,
 } from "../functions/dataExtraction";
 import LineGraphAny from "./LineGraphAny";
+import AreaChartAny from "./AreaChartAny";
 
 function CustomIncomeGraph(props) {
   const dataOptions = [
@@ -185,7 +186,8 @@ function CustomIncomeGraph(props) {
       </div>
       {!showIndex ? (
         <div className="line-graph-container">
-          <LineGraphAny datasets={allDatasets} x={dateArray} />
+          {/* <LineGraphAny datasets={allDatasets} x={dateArray} /> */}
+          <AreaChartAny datasets={allDatasets} x={dateArray} />
         </div>
       ) : (
         <div className="line-graph-container">
