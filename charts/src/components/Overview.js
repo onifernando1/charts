@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/styles/overview.css";
 import CustomIncomeGraph from "./CustomIncomeGraph";
+import CustomBalanceGraph from "./CustomBalanceGraph";
 
 function Overview(props) {
   const sp500price = 457.78;
@@ -14,14 +15,18 @@ function Overview(props) {
   const sp500holdingsTracked = 506;
   const sp500beta = 1.01;
   const sp500sharesOutstanding = "942.7 M";
-  const requestData = props.data;
+  const IncomeRequestData = props.data;
+  const BalanceRequestData = props.balanceData;
 
   return (
     <>
       <div className="overview-container">
         <div className="overview-body-container">
           <div>
-            <CustomIncomeGraph data={requestData} />
+            <CustomIncomeGraph data={IncomeRequestData} />
+          </div>
+          <div>
+            <CustomBalanceGraph data={BalanceRequestData} />
           </div>
         </div>
       </div>

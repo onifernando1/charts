@@ -1,7 +1,11 @@
 import React from "react";
 import Overview from "./Overview";
 import { useState } from "react";
-import { amazonRequestData } from "../sampleData/requestData";
+import {
+  amazonRequestData,
+  amazonBalanceData,
+  amazonCashFlowRequestData,
+} from "../sampleData/requestData";
 import { MSFTRequestData } from "../sampleData/requestData";
 import CashFlowOverview from "./CashFlowOverview";
 import BalanceOverview from "./BalanceOverview";
@@ -25,7 +29,7 @@ function OverviewManager(props) {
         <div>
           <div className="overview-title">{currentRequestData[0].symbol}</div>
         </div>
-        <div>
+        {/* <div>
           <div
             onClick={() => {
               setCurrentRequestData(amazonRequestData);
@@ -57,10 +61,14 @@ function OverviewManager(props) {
           >
             Amazon Balance
           </div>
-        </div>
+        </div> */}
       </div>
       {currentDataView == "income" ? (
-        <Overview data={currentRequestData} dataCompanyB={MSFTRequestData} />
+        <Overview
+          data={currentRequestData}
+          dataCompanyB={MSFTRequestData}
+          balanceData={amazonBalanceData}
+        />
       ) : null}
       {currentDataView == "cashFlow" ? <CashFlowOverview /> : null}
       {currentDataView == "balance" ? <BalanceOverview /> : null}
