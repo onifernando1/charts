@@ -1,7 +1,15 @@
-.custom-income-graph-container.default-container {
-  height: 10rem;
-}
-
 li {
   list-style-type: none;
+}
+
+.custom-income-graph-container.default-container {
+  height: 40rem;
+  width: 60rem;
+}
+
+.custom-income-form {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
 }

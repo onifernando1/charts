@@ -13,14 +13,14 @@ function OverviewManager(props) {
   const [currentDataView, setCurrentDataView] = useState(dataViewsArray[0]);
   return (
     <>
-      <div
+      {/* <div
         onClick={() => {
           setCurrentRequestData(MSFTRequestData);
           setCurrentDataView(dataViewsArray[0]);
         }}
       >
         MSFT Income
-      </div>
+      </div> */}
       <div className="overview-title-container">
         <div>
           <div className="overview-title">{currentRequestData[0].symbol}</div>

@@ -97,9 +97,11 @@ function AreaChartAny(props) {
           datasetsArray[i].tension = 0.4;
           break;
         case 5:
-          datasetsArray[i].backgroundColor = `rgba(27, 27, 27,${transparency})`;
-          datasetsArray[i].borderColor = "rgb(27, 27, 27)";
-          datasetsArray[i].pointBorderColor = "rgb(27, 27, 27)";
+          datasetsArray[
+            i
+          ].backgroundColor = `rgba(255, 255, 255,${transparency})`;
+          datasetsArray[i].borderColor = "rgb(255, 255, 255)";
+          datasetsArray[i].pointBorderColor = "rgb(255, 255, 255)";
           datasetsArray[i].fill = true;
           datasetsArray[i].tension = 0.4;
           break;

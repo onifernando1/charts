@@ -160,7 +160,7 @@ function CustomIncomeGraph(props) {
     <>
       <div className="custom-income-graph-container default-container">
         <div className="revenue-over-time-title"> </div>
-        <button onClick={toggleIndex}>Toggle Index</button>
+        {/* <button onClick={toggleIndex}>Toggle Index</button> */}
 
         <div className="custom-income-form">
           {dataOptions.map((param, index) => {
@@ -183,17 +183,17 @@ function CustomIncomeGraph(props) {
             );
           })}
         </div>
+
+        {!showIndex ? (
+          <div className="area-chart-container">
+            <AreaChartAny datasets={allDatasets} x={dateArray} />
+          </div>
+        ) : (
+          <div className="area-chart-container">
+            <AreaChartAny datasets={createIndexDatasets()} x={dateArray} />
+          </div>
+        )}
       </div>
-      {!showIndex ? (
-        <div className="line-graph-container">
-          {/* <LineGraphAny datasets={allDatasets} x={dateArray} /> */}
-          <AreaChartAny datasets={allDatasets} x={dateArray} />
-        </div>
-      ) : (
-        <div className="line-graph-container">
-          <LineGraphAny datasets={createIndexDatasets()} x={dateArray} />
-        </div>
-      )}
     </>
   );
 }

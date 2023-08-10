@@ -1,20 +1,6 @@
 import React from "react";
-import PriceHistory from "./PriceHistory";
-import ExchangeData from "./ExchangeData";
 import "../assets/styles/overview.css";
-import HoldingStats from "./HoldingStats";
-import { useState } from "react";
-import RevenueOverTime from "./RevenueOverTime";
-import GrossProfitNetIncome from "./GrossProfitNetIncome";
-import Ebitda from "./Ebitda";
-import EpsAndDilutedEps from "./EpsAndDilutedEps";
-import RevenueAndExpenses from "./RevenueAndExpenses";
-import InterestIncomeExpense from "./InterestIncomeExpense";
-import GrossProfitRevenue from "./GrossProfitRevenue";
-import RevenueGPNI from "./RevenueGPNI";
 import CustomIncomeGraph from "./CustomIncomeGraph";
-import IncomeCompareIndex from "./IncomeCompareIndex";
-import IncomeCompareGraph1 from "./IncomeCompareGraph1";
 
 function Overview(props) {
   const sp500price = 457.78;
@@ -34,51 +20,8 @@ function Overview(props) {
     <>
       <div className="overview-container">
         <div className="overview-body-container">
-          <div>Income</div>
-          <div className="overview-body-left-container">
-            <div>
-              <RevenueOverTime data={requestData} />
-            </div>
-            <div>
-              <GrossProfitNetIncome data={requestData} />
-            </div>
-            <div>
-              <Ebitda data={requestData} />
-            </div>
-            <div>
-              <RevenueGPNI data={requestData} />
-            </div>
-            <div>
-              <CustomIncomeGraph data={requestData} />
-            </div>
-          </div>
-          <div className="overview-body-middle-container">
-            <div>
-              <EpsAndDilutedEps data={requestData} />
-            </div>
-            <div>
-              <RevenueAndExpenses data={requestData} />
-            </div>
-            <div>
-              <IncomeCompareIndex
-                data={requestData}
-                dataCompanyB={props.dataCompanyB}
-              />
-            </div>
-          </div>
-          <div className="overview-body-middle-container">
-            <div>
-              <InterestIncomeExpense data={requestData} />
-            </div>
-            <div>
-              <GrossProfitRevenue data={requestData} />
-            </div>
-            <div>
-              <IncomeCompareGraph1
-                data={requestData}
-                dataCompanyB={props.dataCompanyB}
-              />
-            </div>
+          <div>
+            <CustomIncomeGraph data={requestData} />
           </div>
         </div>
       </div>
