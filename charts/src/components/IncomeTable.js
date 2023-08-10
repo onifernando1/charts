@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import "../assets/styles/overview.css";
 import "../assets/styles/income-table.css";
 import {
@@ -8,6 +8,7 @@ import {
   indexNumberConverter,
   getXYearsDataFromRequestNewestToOldest,
 } from "../functions/dataExtraction";
+import Table from "./Table";
 
 function IncomeTable(props) {
   const [dateArray, setDateArray] = useState("");
@@ -19,6 +20,11 @@ function IncomeTable(props) {
   const [operatingIncomeArray, setOperatingIncomeArray] = useState("");
   const [operatingExpensesArray, setOperatingExpensesArray] = useState("");
   const [dataArray, setDataArray] = useState([]);
+  //
+  const [yearArray, setYearArray] = useState("");
+  const [revenueTableObject, setRevenueTableObject] = useState({});
+  const [netIncomeObject, setNetIncomeObject] = useState({});
+  const [joinedDataArray, setJoinedDataArray] = useState({});
 
   const requestData = props.data;
 
@@ -31,40 +37,53 @@ function IncomeTable(props) {
       requestData,
       5
     );
-    // console.log(lastFiveYearsDataDescending);
-    // setDataArray(lastFiveYearsDataDescending);
-    // setDateArray(getPropertyArrayFromData(lastFiveYearsDataDescending, "date"));
-    // setRevenueArray(
-    //   getPropertyArrayFromData(lastFiveYearsDataDescending, "revenue")
-    // );
-    const revArray = getPropertyArrayFromData(
-      lastFiveYearsDataDescending,
-      "revenue"
-    );
-    console.log(revArray);
+
     const date = getPropertyArrayFromData(lastFiveYearsDataDescending, "date");
     console.log(date);
     const yearArray = getYearArray(date);
+    setYearArray(yearArray);
     console.log(yearArray);
-    // let revenueTableObject = { category: "Revenue" };
-    // for (let i = 0; i < yearArray.length; i++) {
-    //   console.log(yearArray[i]);
-    //   revenueTableObject[yearArray[i]] = lastFiveYearsDataDescending[i].revenue;
-    //   console.log(revenueTableObject);
-    // }
-    let revenueTableObject = createTableObject(
+    let revTable = createTableObject(
       "Revenue",
+      "revenue",
       lastFiveYearsDataDescending,
       yearArray
     );
-    console.log(revenueTableObject);
+
+    let incomeTable = createTableObject(
+      "Net Income",
+      "netIncome",
+      lastFiveYearsDataDescending,
+      yearArray
+    );
+
+    setRevenueTableObject(
+      createTableObject(
+        "Revenue",
+        "revenue",
+        lastFiveYearsDataDescending,
+        yearArray
+      )
+    );
+    setNetIncomeObject(
+      createTableObject(
+        "Net Income",
+        "netIncome",
+        lastFiveYearsDataDescending,
+        yearArray
+      )
+    );
+
+    const tempA = [incomeTable, revTable];
+    setJoinedDataArray(tempA);
+    console.log(tempA);
   };
 
-  const createTableObject = (property, dataArray, yearArray) => {
-    let object = { category: property };
+  const createTableObject = (propertyTitle, property, dataArray, yearArray) => {
+    let object = { category: propertyTitle };
     for (let i = 0; i < yearArray.length; i++) {
       console.log(yearArray[i]);
-      object[yearArray[i]] = dataArray[i].revenue;
+      object[yearArray[i]] = dataArray[i][property];
     }
     return object;
   };
@@ -78,25 +97,38 @@ function IncomeTable(props) {
     return tempArray;
   };
 
+  const columns = useMemo(
+    () => [
+      { Header: "Title", accessor: "category" },
+      {
+        Header: "2022",
+        accessor: "2022",
+      },
+      {
+        Header: "2021",
+        accessor: "2021",
+      },
+      {
+        Header: "2020",
+        accessor: "2020",
+      },
+      {
+        Header: "2019",
+        accessor: "2019",
+      },
+      {
+        Header: "2018",
+        accessor: "2018",
+      },
+    ],
+    []
+  );
+
   return (
     <div className="income table">
-      {/* {dataArray.length >= 1 ? (
-        <>
-          <table>
-            <tr>
-              <th>{dataArray[0].date} </th>
-              <th>Year 2 </th>
-            </tr>
-          </table>
-          {dataArray.map((value, key) => {
-            return (
-              <tr key={key}>
-                <td>{value.ebitda}</td>
-              </tr>
-            );
-          })}
-        </>
-      ) : null} */}
+      {joinedDataArray.length >= 1 ? (
+        <Table columns={columns} data={joinedDataArray} />
+      ) : null}
     </div>
   );
 }
