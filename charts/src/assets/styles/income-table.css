@@ -3,12 +3,29 @@
   color: white;
 }
 
+.income.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table-title {
+  margin-top: 2rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
 tr {
   color: white;
+  height: 5rem;
 }
 
 td {
-  color: white;
+  height: 2rem;
+  border: 1px solid #dddddd;
+  padding: 1rem;
+  text-align: center;
 }
 
 .table {
@@ -16,4 +33,8 @@ td {
   padding: 3rem;
   width: 65rem;
   border-radius: 20px;
+}
+
+.table tbody td:nth-of-type(even) {
+  background-color: rgb(62, 62, 62);
 }

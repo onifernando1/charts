@@ -53,13 +53,6 @@ function IncomeTable(props) {
       yearArray
     );
 
-    let incomeTable = createTableObject(
-      "Net Income",
-      "netIncome",
-      lastFiveYearsDataDescending,
-      yearArray
-    );
-
     setRevenueTableObject(
       createTableObject(
         "Revenue",
@@ -267,7 +260,6 @@ function IncomeTable(props) {
     );
 
     const tempA = [
-      incomeTable,
       revTable,
       costOfRevenueArray,
       grossProfit,
@@ -322,7 +314,7 @@ function IncomeTable(props) {
   };
 
   const createColumns = (yearArray) => {
-    let colArray = [{ Header: "", accessor: "category" }];
+    let colArray = [{ Header: "Data", accessor: "category" }];
     for (let i = 0; i < yearArray.length; i++) {
       let tempObj = { Header: yearArray[i], accessor: yearArray[i] };
       colArray.push(tempObj);
@@ -372,6 +364,7 @@ function IncomeTable(props) {
 
   return (
     <div className="income table">
+      <div className="table-title">Income Table</div>
       {joinedDataArray.length >= 1 ? (
         <Table columns={columns} data={joinedDataArray} />
       ) : null}
