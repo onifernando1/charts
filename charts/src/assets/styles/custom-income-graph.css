@@ -27,3 +27,8 @@ li {
   background-color: rgb(255, 122, 60);
   color: rgb(255, 122, 60);
 }
+
+.area-chart-container {
+  height: 30rem;
+  width: 60rem;
+}
