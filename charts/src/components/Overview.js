@@ -3,6 +3,7 @@ import "../assets/styles/overview.css";
 import CustomIncomeGraph from "./CustomIncomeGraph";
 import CustomBalanceGraph from "./CustomBalanceGraph";
 import CustomCashFlowGraph from "./CustomCashFlowGraph";
+import IncomeTable from "./IncomeTable";
 
 function Overview(props) {
   const sp500price = 457.78;
@@ -28,11 +29,14 @@ function Overview(props) {
             <CustomIncomeGraph data={incomeRequestData} />
           </div>
           <div>
+            <IncomeTable data={incomeRequestData} />
+          </div>
+          {/* <div>
             <CustomBalanceGraph data={balanceRequestData} />
           </div>
           <div>
             <CustomCashFlowGraph data={cashFlowRequestData} />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

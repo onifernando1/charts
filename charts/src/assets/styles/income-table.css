@@ -1,0 +1,14 @@
+.table > table {
+  background-color: red;
+  height: 50rem;
+  width: 50rem;
+  color: white;
+}
+
+tr {
+  color: white;
+}
+
+td {
+  color: white;
+}

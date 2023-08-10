@@ -8,6 +8,14 @@ export const getXYearsDataFromRequest = (data, numberOfYears) => {
   return tempArray;
 };
 
+export const getXYearsDataFromRequestNewestToOldest = (data, numberOfYears) => {
+  let tempArray = [];
+  for (let i = 0; i < numberOfYears; i++) {
+    tempArray.push(data[i]);
+  }
+  return tempArray;
+};
+
 export const getPropertyArrayFromData = (data, property) => {
   let tempArray = [];
   for (let i = 0; i < data.length; i++) {
