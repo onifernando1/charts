@@ -1,7 +1,5 @@
 .table > table {
-  background-color: red;
-  height: 50rem;
-  width: 50rem;
+  background-color: rgb(40, 40, 40);
   color: white;
 }
 
@@ -11,4 +9,11 @@ tr {
 
 td {
   color: white;
+}
+
+.table {
+  background-color: rgb(40, 40, 40);
+  padding: 3rem;
+  width: 65rem;
+  border-radius: 20px;
 }
