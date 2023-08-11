@@ -10,26 +10,12 @@ import {
 } from "../functions/dataExtraction";
 import Table from "./Table";
 
-function BalanceTable(props) {
-  const [dateArray, setDateArray] = useState("");
-  const [revenueArray, setRevenueArray] = useState("");
-  const [costOfRevenueArray, setCostOfRevenueArray] = useState("");
-
-  const [ebitdaArray, setEbitdaArray] = useState("");
-  const [grossProfitArray, setGrossProfitArray] = useState("");
-  const [netIncomeArray, setNetIncomeArray] = useState("");
-  const [grossProfitRatioArray, setGrossProfitRatioArray] = useState("");
-  const [operatingIncomeArray, setOperatingIncomeArray] = useState("");
-  const [operatingExpensesArray, setOperatingExpensesArray] = useState("");
-  const [dataArray, setDataArray] = useState([]);
-  //
-  const [yearArray, setYearArray] = useState("");
-  const [revenueTableObject, setRevenueTableObject] = useState({});
-  const [netIncomeObject, setNetIncomeObject] = useState({});
+function AnyTable(props) {
   const [joinedDataArray, setJoinedDataArray] = useState({});
   const [finalColumnsArray, setFinalColumnsArray] = useState([]);
 
   const requestData = props.data;
+  const title = props.title;
 
   useEffect(() => {
     // getDateAndRevenueArraysFromOriginalRequest();
@@ -129,7 +115,7 @@ function BalanceTable(props) {
 
   return (
     <div className="income table">
-      <div className="table-title">Balance Table</div>
+      <div className="table-title">{title}</div>
       {joinedDataArray.length >= 1 ? (
         <Table columns={columns} data={joinedDataArray} />
       ) : null}
@@ -137,4 +123,4 @@ function BalanceTable(props) {
   );
 }
 
-export default BalanceTable;
+export default AnyTable;
