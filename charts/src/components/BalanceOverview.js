@@ -7,6 +7,7 @@ import TotalLiabilities from "./TotalLiabilities";
 import LiabilitiesComposition from "./LiabilitiesComposition";
 import CustomBalanceGraph from "./CustomBalanceGraph";
 import BalanceTable from "./BalanceTable";
+import AnyTable from "./AnyTable";
 
 function BalanceOverview(props) {
   return (
@@ -16,7 +17,8 @@ function BalanceOverview(props) {
           <CustomBalanceGraph data={props.balanceData} />
         </div>
         <div>
-          <BalanceTable data={props.balanceData} />
+          {/* <BalanceTable data={props.balanceData} /> */}
+          <AnyTable data={props.balanceData} title="Balance Table" />
         </div>
       </div>
     </div>

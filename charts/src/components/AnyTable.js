@@ -93,8 +93,19 @@ function AnyTable(props) {
     }
     const dataKeys = Object.keys(lastFiveYearsDataDescending[0]);
 
+    const keysToIgnore = [
+      "link",
+      "finalLink",
+      "date",
+      "symbol",
+      "fillingDate",
+      "acceptedDate",
+      "calendarYear",
+      "period",
+    ];
+
     for (let i = 0; i < dataKeys.length; i++) {
-      if (dataKeys[i] != "link" && dataKeys[i] != "finalLink") {
+      if (keysToIgnore.includes(dataKeys[i]) == false) {
         let tempTableArray = createTableObject(
           camelCaseToTitle(dataKeys[i]),
           dataKeys[i],

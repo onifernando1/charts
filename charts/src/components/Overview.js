@@ -4,6 +4,7 @@ import CustomIncomeGraph from "./CustomIncomeGraph";
 import CustomBalanceGraph from "./CustomBalanceGraph";
 import CustomCashFlowGraph from "./CustomCashFlowGraph";
 import IncomeTable from "./IncomeTable";
+import AnyTable from "./AnyTable";
 
 function Overview(props) {
   const sp500price = 457.78;
@@ -29,7 +30,8 @@ function Overview(props) {
             <CustomIncomeGraph data={incomeRequestData} />
           </div>
           <div>
-            <IncomeTable data={incomeRequestData} />
+            {/* <IncomeTable data={incomeRequestData} /> */}
+            <AnyTable data={incomeRequestData} title="Income Table" />
           </div>
           {/* <div>
             <CustomBalanceGraph data={balanceRequestData} />

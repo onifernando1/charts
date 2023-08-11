@@ -4,22 +4,22 @@ import { amazonCashFlowRequestData } from "../sampleData/requestData";
 import CashEndOfPeriod from "./CashEndOfPeriod";
 import CapitalExpenditure from "./CapitalExpenditure";
 import DebtRepayment from "./DebtRepayment";
+import AnyTable from "./AnyTable";
+import CustomCashFlowGraph from "./CustomCashFlowGraph";
 
 function CashFlowOverview(props) {
+  const cashFlowData = props.data;
+
   return (
     <div className="cash-flow-overview-container">
       <div className="overview-container">
         <div className="overview-body-container">
-          <div>Cash Flow</div>
-          <div className="overview-body-left-container">
-            <StockBasedCompensation data={amazonCashFlowRequestData} />
-            <CashEndOfPeriod data={amazonCashFlowRequestData} />
-            <CapitalExpenditure data={amazonCashFlowRequestData} />
+          <div>
+            <CustomCashFlowGraph data={cashFlowData} />
           </div>
-          <div className="overview-body-middle-container">
-            <DebtRepayment data={amazonCashFlowRequestData} />
+          <div>
+            <AnyTable data={cashFlowData} title="Cash Flow Table" />
           </div>
-          <div className="overview-body-middle-container"></div>
         </div>
       </div>
     </div>
