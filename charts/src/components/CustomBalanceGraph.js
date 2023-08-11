@@ -23,6 +23,12 @@ function CustomBalanceGraph(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
 
+  const arrayWithOneTrue = () => {
+    let array = new Array(dataOptions.length).fill(false);
+    array[0] = true;
+    return array;
+  };
+
   const [checkedState, setCheckedState] = useState(
     new Array(dataOptions.length).fill(false)
   );
@@ -157,6 +163,10 @@ function CustomBalanceGraph(props) {
     });
 
     return allIndexDatasets;
+  };
+
+  const createOneTrue = () => {
+    checkedState[0] = true;
   };
 
   const createNormalDatasets = () => {};
