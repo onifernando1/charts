@@ -41,6 +41,8 @@ function CustomBalanceGraph(props) {
   const [retainedEarningsArray, setRetainedEarningsArray] = useState("");
   const [stockholderEquityArray, setStockholderEquityArray] = useState("");
   const [showIndex, setShowIndex] = useState(false);
+  const [firstRun, setFirstRun] = useState(true);
+  const [pageLoad, setPageLoad] = useState(true);
 
   const [allDatasets, setAllDatasets] = useState("");
 
@@ -53,6 +55,14 @@ function CustomBalanceGraph(props) {
   useEffect(() => {
     createDatasets();
   }, [checkedState]);
+
+  useEffect(() => {
+    if (pageLoad && cashArray.length > 1) {
+      createOneTrue();
+      setAllDatasets([{ label: dataOptions[0], data: cashArray }]);
+      setPageLoad(false);
+    }
+  }, [cashArray, pageLoad]);
 
   const getDateAndRevenueArraysFromOriginalRequest = () => {
     const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
