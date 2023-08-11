@@ -151,6 +151,24 @@ function BalanceTable(props) {
     getAndSetFinalColumnsArray();
   };
 
+  const camelCaseToTitle = (camelCaseTitle) => {
+    let initialString = camelCaseTitle;
+    let newStringArray = [];
+    for (let i = 0; i < camelCaseTitle.length; i++) {
+      if (i == 0) {
+        newStringArray.push(initialString[i].toUpperCase());
+      } else if (initialString[i] == initialString[i].toUpperCase()) {
+        newStringArray.push(" ");
+        newStringArray.push(initialString[i]);
+      } else if (initialString[i] == initialString[i].toLowerCase()) {
+        newStringArray.push(initialString[i]);
+      }
+    }
+    let newString = newStringArray.join("");
+    console.log(newString);
+    return newString;
+  };
+
   const createTableObject = (propertyTitle, property, dataArray, yearArray) => {
     let object = { category: propertyTitle };
     for (let i = 0; i < yearArray.length; i++) {
