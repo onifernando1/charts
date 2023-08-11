@@ -74,7 +74,9 @@ function OverviewManager(props) {
         />
       ) : null}
       {currentDataView == "cashFlow" ? <CashFlowOverview /> : null}
-      {currentDataView == "balance" ? <BalanceOverview /> : null}
+      {currentDataView == "balance" ? (
+        <BalanceOverview balanceData={amazonBalanceData} />
+      ) : null}
     </>
   );
 }

@@ -5,25 +5,20 @@ import CashEquivalents from "./CashEquivalents";
 import TotalAssets from "./TotalAssets";
 import TotalLiabilities from "./TotalLiabilities";
 import LiabilitiesComposition from "./LiabilitiesComposition";
+import CustomBalanceGraph from "./CustomBalanceGraph";
+import BalanceTable from "./BalanceTable";
 
 function BalanceOverview(props) {
   console.log(amazonBalanceData[0]);
 
   return (
     <div className="balance-overview-container">
-      <div className="overview-container">
-        <div className="overview-body-container">
-          <div>Balance</div>
-          <div className="overview-body-left-container">
-            <TotalEquity data={amazonBalanceData} />
-            <CashEquivalents data={amazonBalanceData} />
-            <TotalAssets data={amazonBalanceData} />
-          </div>
-          <div className="overview-body-middle-container">
-            <TotalLiabilities data={amazonBalanceData} />
-            <LiabilitiesComposition data={amazonBalanceData} />
-          </div>
-          <div className="overview-body-middle-container"></div>
+      <div className="overview-body-container">
+        <div>
+          <CustomBalanceGraph data={props.balanceData} />
+        </div>
+        <div>
+          <BalanceTable data={props.balanceData} />
         </div>
       </div>
     </div>
