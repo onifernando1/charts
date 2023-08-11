@@ -88,7 +88,7 @@ function AreaChartAny(props) {
 
         ctx.lineWidth = opts.width || 0;
         ctx.setLineDash(opts.dash || []);
-        ctx.strokeStyle = opts.color || "black";
+        ctx.strokeStyle = opts.color || "orange";
 
         ctx.save();
         ctx.beginPath();
@@ -118,6 +118,7 @@ function AreaChartAny(props) {
           datasetsArray[i].pointBorderColor = `rgb(89,203,232)`;
           datasetsArray[i].fill = true;
           datasetsArray[i].tension = 0.4;
+
           break;
         case 1:
           datasetsArray[i].backgroundColor = `rgba(255,153,51,${transparency})`;

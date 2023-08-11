@@ -15,6 +15,9 @@ function OverviewManager(props) {
   const [currentRequestData, setCurrentRequestData] =
     useState(amazonRequestData);
   const [currentDataView, setCurrentDataView] = useState(dataViewsArray[0]);
+  const incomeData = props.incomeData;
+  const balanceData = props.balanceData;
+  const cashFlowData = props.cashFlowData;
   return (
     <>
       {/* <div
@@ -67,17 +70,17 @@ function OverviewManager(props) {
       </div>
       {currentDataView == "income" ? (
         <Overview
-          data={currentRequestData}
+          data={incomeData}
           dataCompanyB={MSFTRequestData}
           balanceData={amazonBalanceData}
           cashFlowData={amazonCashFlowRequestData}
         />
       ) : null}
       {currentDataView == "cashFlow" ? (
-        <CashFlowOverview data={amazonCashFlowRequestData} />
+        <CashFlowOverview data={cashFlowData} />
       ) : null}
       {currentDataView == "balance" ? (
-        <BalanceOverview balanceData={amazonBalanceData} />
+        <BalanceOverview balanceData={balanceData} />
       ) : null}
     </>
   );
