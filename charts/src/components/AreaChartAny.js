@@ -43,6 +43,63 @@ function AreaChartAny(props) {
     setData(tempData);
   }, [props.datasets]);
 
+  useEffect(() => {
+    ChartJS.register({
+      id: "corsair",
+      afterInit: (chart) => {
+        chart.corsair = {
+          x: 0,
+          //drawfalse
+        };
+      },
+      afterEvent: (chart, evt) => {
+        const {
+          chartArea: { left, right },
+        } = chart;
+        const {
+          event: { x },
+        } = evt;
+        if (x < left || x > right) {
+          chart.corsair = {
+            x,
+            draw: false,
+          };
+          chart.draw();
+          return;
+        }
+
+        chart.corsair = {
+          x,
+          draw: true,
+        };
+
+        chart.draw();
+      },
+      afterDatasetsDraw: (chart, _, opts) => {
+        const {
+          ctx,
+          chartArea: { top, bottom },
+        } = chart;
+        const { x, draw } = chart.corsair;
+
+        if (!draw) {
+          return;
+        }
+
+        ctx.lineWidth = opts.width || 0;
+        ctx.setLineDash(opts.dash || []);
+        ctx.strokeStyle = opts.color || "black";
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(x, bottom);
+        ctx.lineTo(x, top);
+        ctx.stroke();
+        ctx.restore();
+      },
+    });
+  }, []);
+
   const getDatasets = () => {
     let datasetsArray = [];
     for (let i = 0; i < allDatasets.length; i++) {
@@ -161,6 +218,14 @@ function AreaChartAny(props) {
     scales: {
       x: { ticks: { color: "white" } },
       y: { ticks: { color: "white" } },
+    },
+    hover: {
+      mode: "x",
+      intersect: false,
+    },
+    interaction: {
+      mode: "x",
+      intersect: false,
     },
   };
 
