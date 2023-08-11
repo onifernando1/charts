@@ -19,10 +19,12 @@
   background-color: rgb(18, 18, 18);
   height: 4rem;
   display: flex;
-  gap: 10rem;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 10px;
+  margin-top: 5rem;
+  gap: 3rem;
 }
 
 .overview-currency,
@@ -65,4 +67,11 @@ body {
   margin-bottom: 1rem;
   margin-top: -2.5rem;
   color: white;
+}
+
+.data-view-container {
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+  align-items: center;
 }

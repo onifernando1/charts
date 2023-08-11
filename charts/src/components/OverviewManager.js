@@ -29,39 +29,41 @@ function OverviewManager(props) {
         <div>
           <div className="overview-title">{currentRequestData[0].symbol}</div>
         </div>
-        {/* <div>
-          <div
-            onClick={() => {
-              setCurrentRequestData(amazonRequestData);
-              setCurrentDataView(dataViewsArray[0]);
-            }}
-            className="data-view-title"
-          >
-            Amazon Income
+        <div className="data-view-container">
+          <div>
+            <div
+              onClick={() => {
+                setCurrentRequestData(amazonRequestData);
+                setCurrentDataView(dataViewsArray[0]);
+              }}
+              className="data-view-title"
+            >
+              Income
+            </div>
+          </div>
+          <div>
+            <div
+              onClick={() => {
+                setCurrentRequestData(amazonRequestData);
+                setCurrentDataView(dataViewsArray[1]);
+              }}
+              className="data-view-title"
+            >
+              Cash Flow
+            </div>
+          </div>
+          <div>
+            <div
+              onClick={() => {
+                setCurrentRequestData(amazonRequestData);
+                setCurrentDataView(dataViewsArray[2]);
+              }}
+              className="data-view-title"
+            >
+              Balance
+            </div>
           </div>
         </div>
-        <div>
-          <div
-            onClick={() => {
-              setCurrentRequestData(amazonRequestData);
-              setCurrentDataView(dataViewsArray[1]);
-            }}
-            className="data-view-title"
-          >
-            Amazon Cash Flow
-          </div>
-        </div>
-        <div>
-          <div
-            onClick={() => {
-              setCurrentRequestData(amazonRequestData);
-              setCurrentDataView(dataViewsArray[2]);
-            }}
-            className="data-view-title"
-          >
-            Amazon Balance
-          </div>
-        </div> */}
       </div>
       {currentDataView == "income" ? (
         <Overview
