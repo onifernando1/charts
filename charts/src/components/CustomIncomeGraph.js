@@ -36,6 +36,7 @@ function CustomIncomeGraph(props) {
   const [operatingIncomeArray, setOperatingIncomeArray] = useState("");
   const [operatingExpensesArray, setOperatingExpensesArray] = useState("");
   const [showIndex, setShowIndex] = useState(false);
+  const [pageLoad, setPageLoad] = useState(true);
 
   const [allDatasets, setAllDatasets] = useState("");
 
@@ -48,6 +49,18 @@ function CustomIncomeGraph(props) {
   useEffect(() => {
     createDatasets();
   }, [checkedState]);
+
+  useEffect(() => {
+    if (pageLoad && revenueArray.length > 1) {
+      createOneTrue();
+      setAllDatasets([{ label: dataOptions[0], data: revenueArray }]);
+      setPageLoad(false);
+    }
+  }, [revenueArray, pageLoad]);
+
+  const createOneTrue = () => {
+    checkedState[0] = true;
+  };
 
   const getDateAndRevenueArraysFromOriginalRequest = () => {
     const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);

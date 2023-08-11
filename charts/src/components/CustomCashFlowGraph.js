@@ -35,6 +35,7 @@ function CustomCashFlowGraph(props) {
   const [payablesArray, setPayablesArray] = useState("");
   const [capitalArray, setCapitalArray] = useState("");
   const [showIndex, setShowIndex] = useState(false);
+  const [pageLoad, setPageLoad] = useState(true);
 
   const [allDatasets, setAllDatasets] = useState("");
 
@@ -47,6 +48,18 @@ function CustomCashFlowGraph(props) {
   useEffect(() => {
     createDatasets();
   }, [checkedState]);
+
+  useEffect(() => {
+    if (pageLoad && operatingArray.length > 1) {
+      createOneTrue();
+      setAllDatasets([{ label: dataOptions[0], data: operatingArray }]);
+      setPageLoad(false);
+    }
+  }, [operatingArray, pageLoad]);
+
+  const createOneTrue = () => {
+    checkedState[0] = true;
+  };
 
   const getDateAndRevenueArraysFromOriginalRequest = () => {
     const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
