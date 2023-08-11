@@ -9,8 +9,6 @@ import CustomBalanceGraph from "./CustomBalanceGraph";
 import BalanceTable from "./BalanceTable";
 
 function BalanceOverview(props) {
-  console.log(amazonBalanceData[0]);
-
   return (
     <div className="balance-overview-container">
       <div className="overview-body-container">

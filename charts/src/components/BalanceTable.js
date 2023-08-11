@@ -32,7 +32,8 @@ function BalanceTable(props) {
   const requestData = props.data;
 
   useEffect(() => {
-    getDateAndRevenueArraysFromOriginalRequest();
+    // getDateAndRevenueArraysFromOriginalRequest();
+    createTableFromData();
   }, [props.data]);
 
   const getDateAndRevenueArraysFromOriginalRequest = () => {
@@ -42,10 +43,8 @@ function BalanceTable(props) {
     );
 
     const date = getPropertyArrayFromData(lastFiveYearsDataDescending, "date");
-    console.log(date);
     const yearArray = getYearArray(date);
     setYearArray(yearArray);
-    console.log(yearArray);
 
     const cashAndEquivalents = createTableObject(
       "Cash And Cash Equivalents",
@@ -146,12 +145,12 @@ function BalanceTable(props) {
       taxAssets,
     ];
     setJoinedDataArray(tempA);
-    console.log(tempA);
 
     getAndSetFinalColumnsArray();
   };
 
   const camelCaseToTitle = (camelCaseTitle) => {
+    // will not work with acronyms yet
     let initialString = camelCaseTitle;
     let newStringArray = [];
     for (let i = 0; i < camelCaseTitle.length; i++) {
@@ -165,14 +164,12 @@ function BalanceTable(props) {
       }
     }
     let newString = newStringArray.join("");
-    console.log(newString);
     return newString;
   };
 
   const createTableObject = (propertyTitle, property, dataArray, yearArray) => {
     let object = { category: propertyTitle };
     for (let i = 0; i < yearArray.length; i++) {
-      console.log(yearArray[i]);
       object[yearArray[i]] = dataArray[i][property];
     }
     return object;
@@ -205,6 +202,40 @@ function BalanceTable(props) {
     );
     let currentYearArray = getYearArray(currentDate);
     setFinalColumnsArray(createColumns(currentYearArray));
+  };
+
+  const createTableFromData = () => {
+    let tableArray = [];
+
+    let lastFiveYearsDataDescending = getXYearsDataFromRequestNewestToOldest(
+      requestData,
+      5
+    );
+
+    let date = getPropertyArrayFromData(lastFiveYearsDataDescending, "date");
+    let yearArray = getYearArray(date);
+
+    for (let i = 0; i < lastFiveYearsDataDescending.length; i++) {
+      //   console.log(lastFiveYearsDataDescending[i]);
+    }
+    const dataKeys = Object.keys(lastFiveYearsDataDescending[0]);
+
+    for (let i = 0; i < dataKeys.length; i++) {
+      if (dataKeys[i] != "link" && dataKeys[i] != "finalLink") {
+        let tempTableArray = createTableObject(
+          camelCaseToTitle(dataKeys[i]),
+          dataKeys[i],
+          lastFiveYearsDataDescending,
+          yearArray
+        );
+        tableArray.push(tempTableArray);
+      }
+    }
+
+    setJoinedDataArray(tableArray);
+    getAndSetFinalColumnsArray();
+
+    return tableArray;
   };
 
   const columns = useMemo(

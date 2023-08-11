@@ -125,11 +125,9 @@ function CustomIncomeGraph(props) {
 
   const toggleIndex = () => {
     if (showIndex == false) {
-      console.log("false");
       createIndexDatasets(allDatasets);
       setShowIndex(true);
     } else if (showIndex == true) {
-      console.log("true");
       createNormalDatasets();
       setShowIndex(false);
     }

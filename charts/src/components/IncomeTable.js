@@ -42,10 +42,8 @@ function IncomeTable(props) {
     );
 
     const date = getPropertyArrayFromData(lastFiveYearsDataDescending, "date");
-    console.log(date);
     const yearArray = getYearArray(date);
     setYearArray(yearArray);
-    console.log(yearArray);
     let revTable = createTableObject(
       "Revenue",
       "revenue",
@@ -290,7 +288,6 @@ function IncomeTable(props) {
       weightedAverageShsOutDil,
     ];
     setJoinedDataArray(tempA);
-    console.log(tempA);
 
     getAndSetFinalColumnsArray();
   };
@@ -298,7 +295,6 @@ function IncomeTable(props) {
   const createTableObject = (propertyTitle, property, dataArray, yearArray) => {
     let object = { category: propertyTitle };
     for (let i = 0; i < yearArray.length; i++) {
-      console.log(yearArray[i]);
       object[yearArray[i]] = dataArray[i][property];
     }
     return object;
