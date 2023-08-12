@@ -42,6 +42,10 @@ function CustomIncomeGraph(props) {
   }, [props.data]);
 
   useEffect(() => {
+    setPageLoad(true);
+  }, [props.data]);
+
+  useEffect(() => {
     createDatasets();
   }, [checkedState]);
 
