@@ -1,42 +1,56 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Overview from "./Overview";
 import { useState } from "react";
+import CashFlowOverview from "./CashFlowOverview";
+import BalanceOverview from "./BalanceOverview";
 import {
   amazonRequestData,
   amazonBalanceData,
   amazonCashFlowRequestData,
+  MSFTBalanceData,
+  MSFTRequestData,
+  MSFTCashFlowData,
 } from "../sampleData/requestData";
-import { MSFTRequestData } from "../sampleData/requestData";
-import CashFlowOverview from "./CashFlowOverview";
-import BalanceOverview from "./BalanceOverview";
 
 function OverviewManager(props) {
   const dataViewsArray = ["income", "cashFlow", "balance"];
-  const [currentRequestData, setCurrentRequestData] =
-    useState(amazonRequestData);
   const [currentDataView, setCurrentDataView] = useState(dataViewsArray[0]);
-  const incomeData = props.incomeData;
-  const balanceData = props.balanceData;
-  const cashFlowData = props.cashFlowData;
+  const [incomeData, setIncomeData] = useState(amazonRequestData);
+  const [balanceData, setBalanceData] = useState(amazonBalanceData);
+  const [cashFlowData, setCashFlowData] = useState(amazonCashFlowRequestData);
+  const name = props.name;
+
+  console.log("below");
   return (
     <>
-      {/* <div
-        onClick={() => {
-          setCurrentRequestData(MSFTRequestData);
-          setCurrentDataView(dataViewsArray[0]);
-        }}
-      >
-        MSFT Income
-      </div> */}
       <div className="overview-title-container">
+        <div
+          style={{ color: "white" }}
+          onClick={() => {
+            setIncomeData(MSFTRequestData);
+            setBalanceData(MSFTBalanceData);
+            setCashFlowData(MSFTCashFlowData);
+          }}
+        >
+          MSFT
+        </div>
+        <div
+          style={{ color: "white" }}
+          onClick={() => {
+            setIncomeData(amazonRequestData);
+            setBalanceData(amazonBalanceData);
+            setCashFlowData(amazonCashFlowRequestData);
+          }}
+        >
+          Amazon
+        </div>
         <div>
-          <div className="overview-title">{currentRequestData[0].symbol}</div>
+          <div className="overview-title">{name}</div>
         </div>
         <div className="data-view-container">
           <div>
             <div
               onClick={() => {
-                setCurrentRequestData(amazonRequestData);
                 setCurrentDataView(dataViewsArray[0]);
               }}
               className="data-view-title"
@@ -47,7 +61,6 @@ function OverviewManager(props) {
           <div>
             <div
               onClick={() => {
-                setCurrentRequestData(amazonRequestData);
                 setCurrentDataView(dataViewsArray[1]);
               }}
               className="data-view-title"
@@ -58,7 +71,6 @@ function OverviewManager(props) {
           <div>
             <div
               onClick={() => {
-                setCurrentRequestData(amazonRequestData);
                 setCurrentDataView(dataViewsArray[2]);
               }}
               className="data-view-title"
@@ -68,14 +80,7 @@ function OverviewManager(props) {
           </div>
         </div>
       </div>
-      {currentDataView == "income" ? (
-        <Overview
-          data={incomeData}
-          dataCompanyB={MSFTRequestData}
-          balanceData={amazonBalanceData}
-          cashFlowData={amazonCashFlowRequestData}
-        />
-      ) : null}
+      {currentDataView == "income" ? <Overview data={incomeData} /> : null}
       {currentDataView == "cashFlow" ? (
         <CashFlowOverview data={cashFlowData} />
       ) : null}

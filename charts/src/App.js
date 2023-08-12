@@ -13,7 +13,8 @@ function App() {
       {/* <OverviewManager /> */}
       {/* <StackedBarChart /> */}
       {/* <ScatterGraph /> */}
-      <CompanySwitcher />
+      {/* <CompanySwitcher /> */}
+      <OverviewManager />
     </>
   );
 }

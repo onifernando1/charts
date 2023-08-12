@@ -21,9 +21,6 @@ function CustomIncomeGraph(props) {
     "Operating Expenses",
   ];
 
-  const [currentRequestData, setCurrentRequestData] = useState([]);
-  const [isChecked, setIsChecked] = useState(false);
-
   const [checkedState, setCheckedState] = useState(
     new Array(dataOptions.length).fill(false)
   );
@@ -37,9 +34,7 @@ function CustomIncomeGraph(props) {
   const [operatingExpensesArray, setOperatingExpensesArray] = useState("");
   const [showIndex, setShowIndex] = useState(false);
   const [pageLoad, setPageLoad] = useState(true);
-
   const [allDatasets, setAllDatasets] = useState("");
-
   const requestData = props.data;
 
   useEffect(() => {
