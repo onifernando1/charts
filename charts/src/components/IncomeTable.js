@@ -329,34 +329,7 @@ function IncomeTable(props) {
     setFinalColumnsArray(createColumns(currentYearArray));
   };
 
-  const columns = useMemo(
-    () =>
-      // [
-      //   { Header: "", accessor: "category" },
-      //   {
-      //     Header: "2022",
-      //     accessor: "2022",
-      //   },
-      //   {
-      //     Header: "2021",
-      //     accessor: "2021",
-      //   },
-      //   {
-      //     Header: "2020",
-      //     accessor: "2020",
-      //   },
-      //   {
-      //     Header: "2019",
-      //     accessor: "2019",
-      //   },
-      //   {
-      //     Header: "2018",
-      //     accessor: "2018",
-      //   },
-      // ]
-      finalColumnsArray,
-    [finalColumnsArray]
-  );
+  const columns = useMemo(() => finalColumnsArray, [finalColumnsArray]);
 
   return (
     <div className="income table">

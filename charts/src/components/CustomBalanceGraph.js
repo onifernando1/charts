@@ -53,6 +53,10 @@ function CustomBalanceGraph(props) {
   }, [props.data]);
 
   useEffect(() => {
+    setPageLoad(true);
+  }, [props.data]);
+
+  useEffect(() => {
     createDatasets();
   }, [checkedState]);
 
@@ -130,62 +134,14 @@ function CustomBalanceGraph(props) {
     };
   };
 
-  const linkLabelsToIndexArray = () => {
-    return {
-      "Cash And Cash Equivalents": indexNumberConverter(cashArray),
-      "Total Current Assets": indexNumberConverter(assetsArray),
-      "Total Current Liabilities": indexNumberConverter(liabilitiesArray),
-      "Long Term Debt": indexNumberConverter(longTermDebtArray),
-      "Net Debt": indexNumberConverter(netDebtArray),
-      "Retained Earnings": indexNumberConverter(retainedEarningsArray),
-      "Total Stockholders' Equity": indexNumberConverter(
-        stockholderEquityArray
-      ),
-    };
-  };
-
-  const toggleIndex = () => {
-    if (showIndex == false) {
-      console.log("false");
-      createIndexDatasets(allDatasets);
-      setShowIndex(true);
-    } else if (showIndex == true) {
-      console.log("true");
-      createNormalDatasets();
-      setShowIndex(false);
-    }
-  };
-
-  const createIndexDatasets = () => {
-    const labelToArrayObj = linkLabelsToIndexArray();
-    let allDatasetsArray = [];
-    let allIndexDatasets = [];
-
-    checkedState.forEach((item, index) => {
-      if (item == true) {
-        // if it is checked
-        let obj = {
-          label: dataOptions[index],
-          data: labelToArrayObj[dataOptions[index]],
-        };
-        allIndexDatasets.push(obj);
-      }
-    });
-
-    return allIndexDatasets;
-  };
-
   const createOneTrue = () => {
     checkedState[0] = true;
   };
-
-  const createNormalDatasets = () => {};
 
   return (
     <>
       <div className="custom-income-graph-container default-container">
         <div className="graph-title">Balance</div>
-        {/* <button onClick={toggleIndex}>Toggle Index</button> */}
 
         <div className="custom-income-form">
           {dataOptions.map((param, index) => {
@@ -209,15 +165,9 @@ function CustomBalanceGraph(props) {
           })}
         </div>
 
-        {!showIndex ? (
-          <div className="area-chart-container">
-            <AreaChartAny datasets={allDatasets} x={dateArray} />
-          </div>
-        ) : (
-          <div className="area-chart-container">
-            <AreaChartAny datasets={createIndexDatasets()} x={dateArray} />
-          </div>
-        )}
+        <div className="area-chart-container">
+          <AreaChartAny datasets={allDatasets} x={dateArray} />
+        </div>
       </div>
     </>
   );

@@ -4,34 +4,34 @@ import { useEffect } from "react";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
-} from "../functions/dataExtraction";
+} from "../../functions/dataExtraction";
 
-function TotalLiabilities(props) {
+function CapitalExpenditure(props) {
   const [dateArray, setDateArray] = useState("");
-  const [totalLiabilities, setTotalLiabilities] = useState("");
+  const [capitalExpenditureArray, setCapitalExpenditureArray] = useState("");
   const requestData = props.data;
 
   useEffect(() => {
-    getDateAndCashEndDataFromRequest();
+    getDateAndCapitalExpenditureFromRequest();
   }, [props.data]);
 
-  const getDateAndCashEndDataFromRequest = () => {
+  const getDateAndCapitalExpenditureFromRequest = () => {
     const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
     setDateArray(getPropertyArrayFromData(lastTenYearsData, "date"));
-    setTotalLiabilities(
-      getPropertyArrayFromData(lastTenYearsData, "totalLiabilities")
+    setCapitalExpenditureArray(
+      getPropertyArrayFromData(lastTenYearsData, "capitalExpenditure")
     );
   };
 
   return (
     <div className="default-container">
-      <div className="total-liabilities-title">Total Liabilities</div>
+      <div className="capital-expenditure-title">Capital Expenditure</div>
       <LineGraph
         x={dateArray}
-        dataset1={{ data: totalLiabilities, label: "$" }}
+        dataset1={{ data: capitalExpenditureArray, label: "$" }}
       />
     </div>
   );
 }
 
-export default TotalLiabilities;
+export default CapitalExpenditure;

@@ -102,9 +102,6 @@ function BalanceTable(props) {
     let date = getPropertyArrayFromData(lastFiveYearsDataDescending, "date");
     let yearArray = getYearArray(date);
 
-    for (let i = 0; i < lastFiveYearsDataDescending.length; i++) {
-      //   console.log(lastFiveYearsDataDescending[i]);
-    }
     const dataKeys = Object.keys(lastFiveYearsDataDescending[0]);
 
     for (let i = 0; i < dataKeys.length; i++) {

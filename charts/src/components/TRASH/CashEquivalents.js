@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import LineGraph from "./LineGraph";
-import "../assets/styles/cash-end.css";
 import { useEffect } from "react";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
-} from "../functions/dataExtraction";
+} from "../../functions/dataExtraction";
 
-function CashEndOfPeriod(props) {
+function CashEquivalents(props) {
   const [dateArray, setDateArray] = useState("");
-  const [cashEndOfPeriodArray, setCashEndOfPeriodArray] = useState("");
+  const [cashEquivalentsArray, setCashEquivalentsArray] = useState("");
   const requestData = props.data;
 
   useEffect(() => {
@@ -19,20 +18,20 @@ function CashEndOfPeriod(props) {
   const getDateAndCashEndDataFromRequest = () => {
     const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
     setDateArray(getPropertyArrayFromData(lastTenYearsData, "date"));
-    setCashEndOfPeriodArray(
-      getPropertyArrayFromData(lastTenYearsData, "cashAtEndOfPeriod")
+    setCashEquivalentsArray(
+      getPropertyArrayFromData(lastTenYearsData, "cashAndCashEquivalents")
     );
   };
 
   return (
     <div className="default-container">
-      <div className="cash-end-title">End Of Period Cash</div>
+      <div className="cash-equivalents-title">Cash and cash equivalents</div>
       <LineGraph
         x={dateArray}
-        dataset1={{ data: cashEndOfPeriodArray, label: "$" }}
+        dataset1={{ data: cashEquivalentsArray, label: "$" }}
       />
     </div>
   );
 }
 
-export default CashEndOfPeriod;
+export default CashEquivalents;

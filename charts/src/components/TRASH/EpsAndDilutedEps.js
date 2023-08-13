@@ -1,13 +1,13 @@
 import React from "react";
-import BarChart2 from "./BarChart2";
+import BarChart2 from "../BarChart2";
 import { useState, useEffect } from "react";
-import { requestData } from "../sampleData/requestData";
+import { requestData } from "../../sampleData/requestData";
 import "../assets/styles/epsdiluted.css";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
   getDateAndPropertyArrayFromData,
-} from "../functions/dataExtraction";
+} from "../../functions/dataExtraction";
 
 function EpsAndDilutedEps(props) {
   const [dateArray, setDateArray] = useState("");

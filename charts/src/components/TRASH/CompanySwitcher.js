@@ -7,8 +7,8 @@ import {
   MSFTBalanceData,
   MSFTRequestData,
   MSFTCashFlowData,
-} from "../sampleData/requestData";
-import OverviewManager from "./OverviewManager";
+} from "../../sampleData/requestData";
+import OverviewManager from "../OverviewManager";
 
 function CompanySwitcher(props) {
   const [currentCompanyData, setCurrentCompanyData] = useState({

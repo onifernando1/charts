@@ -6,7 +6,7 @@ import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
   getDateAndPropertyArrayFromData,
-} from "../functions/dataExtraction";
+} from "../../functions/dataExtraction";
 
 function RevenueOverTime(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);

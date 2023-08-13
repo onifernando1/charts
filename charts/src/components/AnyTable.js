@@ -18,16 +18,16 @@ function AnyTable(props) {
   const title = props.title;
 
   useEffect(() => {
-    // getDateAndRevenueArraysFromOriginalRequest();
     createTableFromData();
   }, [props.data]);
 
   const camelCaseToTitle = (camelCaseTitle) => {
-    // will not work with acronyms yet
     let initialString = camelCaseTitle;
     let newStringArray = [];
     for (let i = 0; i < camelCaseTitle.length; i++) {
-      if (i == 0) {
+      if (camelCaseTitle.length <= 4) {
+        newStringArray.push(initialString[i].toUpperCase());
+      } else if (i == 0) {
         newStringArray.push(initialString[i].toUpperCase());
       } else if (initialString[i] == initialString[i].toUpperCase()) {
         newStringArray.push(" ");
@@ -88,9 +88,6 @@ function AnyTable(props) {
     let date = getPropertyArrayFromData(lastFiveYearsDataDescending, "date");
     let yearArray = getYearArray(date);
 
-    for (let i = 0; i < lastFiveYearsDataDescending.length; i++) {
-      //   console.log(lastFiveYearsDataDescending[i]);
-    }
     const dataKeys = Object.keys(lastFiveYearsDataDescending[0]);
 
     const keysToIgnore = [

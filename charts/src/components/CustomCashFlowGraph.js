@@ -46,6 +46,10 @@ function CustomCashFlowGraph(props) {
   }, [props.data]);
 
   useEffect(() => {
+    setPageLoad(true);
+  }, [props.data]);
+
+  useEffect(() => {
     createDatasets();
   }, [checkedState]);
 
@@ -127,56 +131,10 @@ function CustomCashFlowGraph(props) {
     };
   };
 
-  const linkLabelsToIndexArray = () => {
-    return {
-      "Operating Cash Flow": indexNumberConverter(operatingArray),
-      "Free Cash Flow": indexNumberConverter(freeArray),
-      "Common Stock Issued": indexNumberConverter(stockArray),
-      "Deferred Income Tax": indexNumberConverter(deferredIncomeArray),
-      "Accounts Receivables": indexNumberConverter(receivablesArray),
-      "Accounts Payables": indexNumberConverter(payablesArray),
-      "Change in Working Capital": indexNumberConverter(capitalArray),
-    };
-  };
-
-  const toggleIndex = () => {
-    if (showIndex == false) {
-      console.log("false");
-      createIndexDatasets(allDatasets);
-      setShowIndex(true);
-    } else if (showIndex == true) {
-      console.log("true");
-      createNormalDatasets();
-      setShowIndex(false);
-    }
-  };
-
-  const createIndexDatasets = () => {
-    const labelToArrayObj = linkLabelsToIndexArray();
-    let allDatasetsArray = [];
-    let allIndexDatasets = [];
-
-    checkedState.forEach((item, index) => {
-      if (item == true) {
-        // if it is checked
-        let obj = {
-          label: dataOptions[index],
-          data: labelToArrayObj[dataOptions[index]],
-        };
-        allIndexDatasets.push(obj);
-      }
-    });
-
-    return allIndexDatasets;
-  };
-
-  const createNormalDatasets = () => {};
-
   return (
     <>
       <div className="custom-income-graph-container default-container">
         <div className="graph-title">Cash Flow</div>
-        {/* <button onClick={toggleIndex}>Toggle Index</button> */}
 
         <div className="custom-income-form">
           {dataOptions.map((param, index) => {
@@ -200,15 +158,9 @@ function CustomCashFlowGraph(props) {
           })}
         </div>
 
-        {!showIndex ? (
-          <div className="area-chart-container">
-            <AreaChartAny datasets={allDatasets} x={dateArray} />
-          </div>
-        ) : (
-          <div className="area-chart-container">
-            <AreaChartAny datasets={createIndexDatasets()} x={dateArray} />
-          </div>
-        )}
+        <div className="area-chart-container">
+          <AreaChartAny datasets={allDatasets} x={dateArray} />
+        </div>
       </div>
     </>
   );

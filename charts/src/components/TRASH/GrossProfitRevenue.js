@@ -4,8 +4,8 @@ import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
   getDateAndPropertyArrayFromData,
-} from "../functions/dataExtraction";
-import PieChart from "./PieChart";
+} from "../../functions/dataExtraction";
+import PieChart from "../PieChart";
 import "../assets/styles/gross-profit-revenue.css";
 
 function GrossProfitRevenue(props) {

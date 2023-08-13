@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import PieChart from "./PieChart";
+import PieChart from "../PieChart";
 import "../assets/styles/revenueexpenses.css";
 
 function RevenueAndExpenses(props) {

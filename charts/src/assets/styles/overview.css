@@ -39,6 +39,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 15rem;
+  position: relative;
 }
 
 .default-container {
@@ -77,6 +79,39 @@ body {
   align-items: center;
 }
 
-.balance-overview-container {
-  margin-top: 2rem;
+.select-company-container > select {
+  padding: 1px;
+  background-color: rgb(18, 18, 18);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 2.5rem;
+  border: 1px solid rgb(18, 18, 18);
+}
+
+.location-tracker-container {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  width: 10rem;
+  font-size: 1.3rem;
+  padding: 1rem;
+  border-radius: 20px;
+  position: fixed;
+  top: 26%;
+  left: 10%;
+}
+
+.data-view-title.true {
+  background-color: rgb(3, 201, 136);
+}
+
+.data-view-title {
+  height: 2rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 20px;
 }

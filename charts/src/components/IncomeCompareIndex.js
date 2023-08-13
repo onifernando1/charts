@@ -6,9 +6,10 @@ import {
   getXYearsDataFromRequest,
   indexNumberConverter,
 } from "../functions/dataExtraction";
-import LineGraph3 from "./LineGraph3";
+import LineGraph3 from "./TRASH/LineGraph3";
 import LineGraphAny from "./LineGraphAny";
 import "../assets/styles/income-compare.css";
+import AreaChartAny from "./AreaChartAny";
 
 function IncomeCompareIndex(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);
@@ -43,7 +44,7 @@ function IncomeCompareIndex(props) {
     <div className="income-compare default-container">
       <div>Income Compare Index</div>
       <div>
-        <LineGraphAny
+        <AreaChartAny
           datasets={[
             { label: "Revenue Amazon", data: revenueCompanyAArray },
             { label: "Revenue MSFT", data: revenueCompanyBArray },

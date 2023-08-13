@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
-} from "../functions/dataExtraction";
+} from "../../functions/dataExtraction";
 
-function CashEquivalents(props) {
+function TotalAssets(props) {
   const [dateArray, setDateArray] = useState("");
-  const [cashEquivalentsArray, setCashEquivalentsArray] = useState("");
+  const [totalAssetsArray, setTotalAssetsArray] = useState("");
   const requestData = props.data;
 
   useEffect(() => {
@@ -18,20 +18,20 @@ function CashEquivalents(props) {
   const getDateAndCashEndDataFromRequest = () => {
     const lastTenYearsData = getXYearsDataFromRequest(requestData, 10);
     setDateArray(getPropertyArrayFromData(lastTenYearsData, "date"));
-    setCashEquivalentsArray(
-      getPropertyArrayFromData(lastTenYearsData, "cashAndCashEquivalents")
+    setTotalAssetsArray(
+      getPropertyArrayFromData(lastTenYearsData, "totalAssets")
     );
   };
 
   return (
     <div className="default-container">
-      <div className="cash-equivalents-title">Cash and cash equivalents</div>
+      <div className="total-assets-title">Total Assets</div>
       <LineGraph
         x={dateArray}
-        dataset1={{ data: cashEquivalentsArray, label: "$" }}
+        dataset1={{ data: totalAssetsArray, label: "$" }}
       />
     </div>
   );
 }
 
-export default CashEquivalents;
+export default TotalAssets;

@@ -190,11 +190,6 @@ function LineGraphAny(props) {
     },
   };
 
-  const showMe = (x) => {
-    console.log("called");
-    console.log(x);
-  };
-
   return (
     <div className="line-graph any">
       {data ? (

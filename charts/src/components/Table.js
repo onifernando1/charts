@@ -49,6 +49,9 @@ function Table({ columns, data }) {
                   }
                 >
                   {column.render("Header")}
+                  <span>
+                    {column.isSorted ? (column.isSortedDesc ? " ^" : " v") : ""}
+                  </span>
                 </th>
               ))}
             </tr>

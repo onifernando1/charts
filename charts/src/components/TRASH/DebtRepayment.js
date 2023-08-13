@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
-} from "../functions/dataExtraction";
-import BarChart from "./BarChart";
+} from "../../functions/dataExtraction";
+import BarChart from "../BarChart";
 
-function TotalEquity(props) {
+function DebtRepayment(props) {
   const requestData = props.data;
   const [dateArray, setDateArray] = useState("");
-  const [totalEquityArray, setTotalEquityArray] = useState("");
+  const [debtRepaymentArray, setDebtRepaymentArray] = useState("");
 
   useEffect(() => {
     getDateAndCashFlowDataFromRequest();
@@ -18,23 +18,23 @@ function TotalEquity(props) {
   const getDateAndCashFlowDataFromRequest = () => {
     const lastFiveYearsData = getXYearsDataFromRequest(requestData, 5);
     setDateArray(getPropertyArrayFromData(lastFiveYearsData, "date"));
-    setTotalEquityArray(
-      getPropertyArrayFromData(lastFiveYearsData, "totalEquity")
+    setDebtRepaymentArray(
+      getPropertyArrayFromData(lastFiveYearsData, "debtRepayment")
     );
   };
 
   return (
     <div className="default-container">
-      <div className="total-equity-title">Total Equity</div>
+      <div className="debt-repayment-title">Debt Repayment</div>
       <BarChart
         x={dateArray}
         dataset1={{
-          label: "Total equity",
-          data: totalEquityArray,
+          label: "Debt Repayment",
+          data: debtRepaymentArray,
         }}
       />
     </div>
   );
 }
 
-export default TotalEquity;
+export default DebtRepayment;

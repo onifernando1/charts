@@ -5,8 +5,8 @@ import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
   indexNumberConverter,
-} from "../functions/dataExtraction";
-import LineGraphAny from "./LineGraphAny";
+} from "../../functions/dataExtraction";
+import LineGraphAny from "../LineGraphAny";
 
 function IncomeCompareGraph1(props) {
   const dataOptions = [

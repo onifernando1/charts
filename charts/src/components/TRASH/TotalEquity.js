@@ -3,14 +3,13 @@ import { useState, useEffect } from "react";
 import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
-} from "../functions/dataExtraction";
-import BarChart from "./BarChart";
-import "../assets/styles/stock-based-comp.css";
+} from "../../functions/dataExtraction";
+import BarChart from "../BarChart";
 
-function StockBasedCompensation(props) {
+function TotalEquity(props) {
   const requestData = props.data;
   const [dateArray, setDateArray] = useState("");
-  const [stockBasedCompArray, setStockBasedCompArray] = useState("");
+  const [totalEquityArray, setTotalEquityArray] = useState("");
 
   useEffect(() => {
     getDateAndCashFlowDataFromRequest();
@@ -19,23 +18,23 @@ function StockBasedCompensation(props) {
   const getDateAndCashFlowDataFromRequest = () => {
     const lastFiveYearsData = getXYearsDataFromRequest(requestData, 5);
     setDateArray(getPropertyArrayFromData(lastFiveYearsData, "date"));
-    setStockBasedCompArray(
-      getPropertyArrayFromData(lastFiveYearsData, "stockBasedCompensation")
+    setTotalEquityArray(
+      getPropertyArrayFromData(lastFiveYearsData, "totalEquity")
     );
   };
 
   return (
-    <div className="stock-based-comp-container">
-      <div className="stock-based-comp-title">Stock Based Compensation</div>
+    <div className="default-container">
+      <div className="total-equity-title">Total Equity</div>
       <BarChart
         x={dateArray}
         dataset1={{
-          label: "Stock Based Compensation",
-          data: stockBasedCompArray,
+          label: "Total equity",
+          data: totalEquityArray,
         }}
       />
     </div>
   );
 }
 
-export default StockBasedCompensation;
+export default TotalEquity;

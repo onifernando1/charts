@@ -5,9 +5,9 @@ import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
   getDateAndPropertyArrayFromData,
-} from "../functions/dataExtraction";
+} from "../../functions/dataExtraction";
 import LineGraph3 from "./LineGraph3";
-import LineGraphAny from "./LineGraphAny";
+import LineGraphAny from "../LineGraphAny";
 
 function RevenueGPNI(props) {
   const [currentRequestData, setCurrentRequestData] = useState([]);

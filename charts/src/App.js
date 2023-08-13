@@ -2,7 +2,7 @@ import React from "react";
 import OverviewManager from "./components/OverviewManager";
 import StackedBarChart from "./components/StackedBarChart";
 import ScatterGraph from "./components/ScatterGraph";
-import CompanySwitcher from "./components/CompanySwitcher";
+import CompanySwitcher from "./components/TRASH/CompanySwitcher";
 
 function App() {
   return (

@@ -4,8 +4,8 @@ import {
   getPropertyArrayFromData,
   getXYearsDataFromRequest,
   getDateAndPropertyArrayFromData,
-} from "../functions/dataExtraction";
-import PieChart from "./PieChart";
+} from "../../functions/dataExtraction";
+import PieChart from "../PieChart";
 
 function LiabilitiesComposition(props) {
   const requestData = props.data;
