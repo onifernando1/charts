@@ -1,0 +1,70 @@
+.home-container {
+  background-color: rgb(18, 18, 18);
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr 10fr;
+}
+
+/* moving stocks */
+.moving-stocks-container {
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
+.individual-moving {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-right: 1rem;
+  animation: move-left 2s linear infinite;
+}
+
+.moving-percent {
+  color: rgb(12, 198, 12);
+}
+
+.moving-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.key-stocks-container {
+  width: 100%;
+  background-color: orange;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.home-news-container {
+  height: 50rem;
+  background-color: green;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.home-most-searched-container {
+  background-color: pink;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
