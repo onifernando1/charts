@@ -38,7 +38,9 @@ function OverviewManager(props) {
   const [cashFlowData, setCashFlowData] = useState(amazonCashFlowRequestData);
   const [optionSelected, setOptionSelected] = useState("");
   const [currentCompanyBData, setCurrentCompanyBData] = useState(msftData);
-  const [activeHeader, setActiveHeader] = useState([false, false, false]);
+  const [activeHeader, setActiveHeader] = useState([true, false, false]);
+  const [activeSection, setActiveSection] = useState(null);
+  const observer = useRef(null);
 
   const name = props.name;
 

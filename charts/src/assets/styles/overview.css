@@ -115,3 +115,7 @@ body {
   padding: 1rem;
   border-radius: 20px;
 }
+
+.section-active {
+  background-color: blue;
+}
