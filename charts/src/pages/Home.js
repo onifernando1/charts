@@ -1,5 +1,6 @@
 import React from "react";
 import "../assets/styles/home.css";
+import AreaChartAny from "../components/AreaChartAny";
 
 function Home(props) {
   return (
@@ -70,7 +71,86 @@ function Home(props) {
           </span>
         </div>
         <div className="key-stocks-container">
-          <div>XYZ</div>
+          <div className="individual-key-stock">
+            <div className="key-stocks-info">
+              <div>
+                <div className="key-stocks-title">S&P 500</div>
+                <div>$446.05</div>
+              </div>
+              <div className="moving-percent">-4.78 (-0.11%)</div>
+            </div>
+            <div className="key-chart">GRAPH</div>
+          </div>
+          <div className="individual-key-stock">
+            <div className="key-stocks-info">
+              <div>
+                <div className="key-stocks-title">S&P 500</div>
+                <div>$446.05</div>
+              </div>
+              <div className="moving-percent">-4.78 (-0.11%)</div>
+            </div>
+            <div className="key-chart">GRAPH</div>
+          </div>
+          <div className="individual-key-stock">
+            <div className="key-stocks-info">
+              <div>
+                <div className="key-stocks-title">S&P 500</div>
+                <div>$446.05</div>
+              </div>
+              <div className="moving-percent">-4.78 (-0.11%)</div>
+            </div>
+            <div className="key-chart">GRAPH</div>
+          </div>
+          <div className="individual-key-stock">
+            <div className="key-stocks-info">
+              <div>
+                <div className="key-stocks-title">S&P 500</div>
+                <div>$446.05</div>
+              </div>
+              <div className="moving-percent">-4.78 (-0.11%)</div>
+            </div>
+            <div className="key-chart">GRAPH</div>
+          </div>
+          <div className="individual-key-stock">
+            <div className="key-stocks-info">
+              <div>
+                <div className="key-stocks-title">S&P 500</div>
+                <div>$446.05</div>
+              </div>
+              <div className="moving-percent">-4.78 (-0.11%)</div>
+            </div>
+            <div className="key-chart">GRAPH</div>
+          </div>
+          <div className="individual-key-stock">
+            <div className="key-stocks-info">
+              <div>
+                <div className="key-stocks-title">S&P 500</div>
+                <div>$446.05</div>
+              </div>
+              <div className="moving-percent">-4.78 (-0.11%)</div>
+            </div>
+            <div className="key-chart">GRAPH</div>
+          </div>
+          <div className="individual-key-stock">
+            <div className="key-stocks-info">
+              <div>
+                <div className="key-stocks-title">S&P 500</div>
+                <div>$446.05</div>
+              </div>
+              <div className="moving-percent">-4.78 (-0.11%)</div>
+            </div>
+            <div className="key-chart">GRAPH</div>
+          </div>
+          <div className="individual-key-stock">
+            <div className="key-stocks-info">
+              <div>
+                <div className="key-stocks-title">S&P 500</div>
+                <div>$446.05</div>
+              </div>
+              <div className="moving-percent">-4.78 (-0.11%)</div>
+            </div>
+            <div className="key-chart">GRAPH</div>
+          </div>
         </div>
         <div className="home-news-container">
           <div>Latest News</div>
