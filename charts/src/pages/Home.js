@@ -153,12 +153,64 @@ function Home(props) {
           </div>
         </div>
         <div className="home-news-container">
-          <div>Latest News</div>
-          <div>XYZ</div>
+          <div className="home-news-title">Latest News</div>
+          <div className="individual-news-container">
+            <div className="news-divider">
+              <div className="news-image">
+                <img src={require("../assets/images/cano.jpg")}></img>
+              </div>
+              <div className="news-information">
+                <div className="news-title">
+                  Cano Health Stock Plunges 46% on Going Concern Warning
+                </div>
+                <div>
+                  Cano Health (NYSE:CANO) witnessed a dramatic decline of over
+                  46% in its stock price pre-market today following the issuance
+                  of a warning about its going concern status, coupled with an
+                  announcement about its exploration of a potential sale. Cano
+                  Health disclosed its current inadequacy of liquidity...
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="home-most-searched-container">
-          <div>Most Searched</div>
-          <div>XYZ</div>
+          <div className="most-searched-title">Most Searched</div>
+          <div className="most-searched-individual">
+            <div className="most-searched-name">AAPL</div>
+            <div className="most-searched-percent">+0.03%</div>
+            <div className="most-searched-price">$177.79</div>
+          </div>
+          <div className="most-searched-individual">
+            <div className="most-searched-name">AAPL</div>
+            <div className="most-searched-percent">+0.03%</div>
+            <div className="most-searched-price">$177.79</div>
+          </div>
+          <div className="most-searched-individual">
+            <div className="most-searched-name">AAPL</div>
+            <div className="most-searched-percent">+0.03%</div>
+            <div className="most-searched-price">$177.79</div>
+          </div>
+          <div className="most-searched-individual">
+            <div className="most-searched-name">AAPL</div>
+            <div className="most-searched-percent">+0.03%</div>
+            <div className="most-searched-price">$177.79</div>
+          </div>
+          <div className="most-searched-individual">
+            <div className="most-searched-name">AAPL</div>
+            <div className="most-searched-percent">+0.03%</div>
+            <div className="most-searched-price">$177.79</div>
+          </div>
+          <div className="most-searched-individual">
+            <div className="most-searched-name">AAPL</div>
+            <div className="most-searched-percent">+0.03%</div>
+            <div className="most-searched-price">$177.79</div>
+          </div>
+          <div className="most-searched-individual">
+            <div className="most-searched-name">AAPL</div>
+            <div className="most-searched-percent">+0.03%</div>
+            <div className="most-searched-price">$177.79</div>
+          </div>
         </div>
       </div>
     </>

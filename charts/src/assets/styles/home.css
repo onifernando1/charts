@@ -80,13 +80,77 @@
 
 .home-news-container {
   height: 50rem;
-  background-color: green;
   grid-column-start: 1;
   grid-column-end: 2;
+  padding: 2rem;
 }
 
 .home-most-searched-container {
-  background-color: pink;
   grid-column-start: 2;
   grid-column-end: 3;
+}
+
+.home-news-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.individual-news-container {
+  background-color: rgb(40, 40, 40);
+  height: 15rem;
+  width: 50rem;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+}
+
+.news-title {
+  font-size: 1.5rem;
+}
+
+.news-image > img {
+  height: 13rem;
+}
+
+.news-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.news-information {
+  display: flex;
+  flex-direction: column;
+}
+
+.most-searched-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.most-searched-name,
+.most-searched-price {
+  font-weight: 1.2rem;
+  font-weight: bold;
+}
+
+.most-searched-percent {
+  color: green;
+  background-color: rgba(188, 251, 188, 0.496);
+  font-weight: bold;
+  height: 2rem;
+  width: 5rem;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.most-searched-individual {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
