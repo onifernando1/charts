@@ -20,7 +20,10 @@ function Overview(props) {
   const [activeSection, setActiveSection] = useState("");
 
   const scrollToSection = (elementRef) => {
-    window.scrollTo({ top: elementRef.current.offsetTop, behavior: "smooth" });
+    window.scrollTo({
+      top: elementRef.current.offsetTop + 100,
+      behavior: "smooth",
+    });
   };
 
   useEffect(() => {

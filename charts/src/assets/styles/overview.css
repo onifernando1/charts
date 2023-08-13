@@ -116,6 +116,13 @@ body {
   border-radius: 20px;
 }
 
+.location-tracker {
+  height: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
 .section-active {
-  background-color: blue;
+  background-color: rgb(3, 201, 136);
 }
