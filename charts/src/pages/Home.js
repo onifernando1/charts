@@ -7,103 +7,66 @@ function Home(props) {
       <div className="home-container">
         <div className="moving-stocks-container">
           <span className="moving-left">
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-          </span>
-          <span className="moving-left2">
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
-            <div className="individual-moving">
-              <div className="moving-title">AAPL </div>
-              <div className="moving-number">177.79</div>
-              <div className="moving-percent">+0.04%</div>
-            </div>
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>{" "}
+            <span className="moving">
+              AAPL 177.79 <span className="moving-percent">+0.04%</span>
+            </span>
           </span>
         </div>
         <div className="key-stocks-container">
